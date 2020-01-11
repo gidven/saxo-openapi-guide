@@ -1,0 +1,25 @@
+site_name: The Developer's Guide to Saxo's OpenAPI
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'black'
+    accent: 'indigo'
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+# logo: 'images/saxo_logo.svg'    this requies additional CSS to properly style the logo in the header bar
+  logo:
+    icon: 'school'
+  language: 'en'
+#  favicon: 'school'   this would have to be replaced by Saxo logo too at some point
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+plugins:
+  - git-revision-date-localized
