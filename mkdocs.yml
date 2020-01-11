@@ -32,6 +32,9 @@ nav:
       - Overview: basics/core-business-concepts/index.md
     - Fundamental Programming Concepts:
       - Overview: basics/fundamental-programming-concepts/index.md
+    - Frequently Asked Questions:
+      - FAQ Guide: basics/faq/index.md
+      - How do I authenticate?: basics/faq/authentication.md
   - Individual Developers:
     - Introduction: individual/index.md
   - Institutional Developers:
@@ -44,8 +47,8 @@ nav:
     - Release Notes:
       - Guide: updates/release-notes/index.md
       - 2019-12-13 - Breaking: updates/release-notes/2019-12-13.md
-      - 2019-11-25: updates/release-notes/2019-11-25.md
-      - 2019-09-03: updates/release-notes/2019-09-03.md
+      - "2019-11-25": updates/release-notes/2019-11-25.md
+      - "2019-09-03": updates/release-notes/2019-09-03.md
 
 extra:
   social:
