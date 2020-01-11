@@ -25,11 +25,12 @@ nav:
   - The Basics:
     - Introduction: basics/index.md
   - Individual Developers:
-    - Introduction: indiv/index.md
-  - 3rd-Party App Developers:
-    - Introduction: 3rdparty/index.md
+    - Introduction: individual/index.md
   - Institutional Developers:
-    - Introduction: insti/index.md
+    - Introduction: institutional/index.md
+  - 3rd-Party App Developers:
+    - Introduction: third-party/index.md
+
 
 
 extra:
