@@ -1,8 +1,10 @@
+# Project info
 site_name: The Developer's Guide to Saxo's OpenAPI
 site_description: "The #1 reference for developers working with Saxo Bank's OpenAPI."
 site_author: Saxo Bank A/S
 copyright: 'Copyright &copy; 2020 Saxo Bank A/S'
 
+# MkDocs config
 theme:
   name: 'material'
   language: 'en'
@@ -13,19 +15,19 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-# logo: 'images/saxo_logo.svg'    this requies additional CSS to properly style the logo in the header bar
   logo:
     icon: 'school'
-#  favicon: 'school'   this would have to be replaced by Saxo logo too at some point
   feature:
     tabs: true
 
+# Documentation structure
 nav:
   - Home:
     - Welcome: index.md
-    - A Brief History: history.md
-    - The Team: team.md
+    - Using the Guide: usage.md
+    - Useful Tools: tools.md
     - Requesting Support: support.md
+    - Disclaimer: disclaimer.md
   - The Basics:
     - Introduction: basics/index.md
     - Core Business Concepts:
@@ -49,6 +51,15 @@ nav:
       - 2019-12-13 - Breaking: updates/release-notes/2019-12-13.md
       - "2019-11-25": updates/release-notes/2019-11-25.md
       - "2019-09-03": updates/release-notes/2019-09-03.md
+
+# Required extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.extra
+  - pymdownx.details
+  - attr_list
+  - codehilite:
+      linenums: true
 
 extra:
   social:
