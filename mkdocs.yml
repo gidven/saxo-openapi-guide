@@ -11,8 +11,8 @@ theme:
     primary: 'black'
     accent: 'indigo'
   font:
-    text: 'Ubuntu'
-    code: 'Ubuntu Mono'
+    text: 'Roboto'
+    code: 'Roboto Mono'
 # logo: 'images/saxo_logo.svg'    this requies additional CSS to properly style the logo in the header bar
   logo:
     icon: 'school'
@@ -21,17 +21,23 @@ theme:
     tabs: true
 
 nav:
-  - Home: index.md
+  - Home:
+    - Welcome: index.md
+    - A Brief History: history.md
+    - Saxo's OpenAPI Team: team.md
+    - Requesting Support: support.md
   - The Basics:
     - Introduction: basics/index.md
+    - Core Business Concepts:
+      - Overview: basics/core-business-concepts/index.md
+    - Fundamental Programming Concepts:
+      - Overview: basics/fundamental-programming-concepts/index.md
   - Individual Developers:
     - Introduction: individual/index.md
   - Institutional Developers:
     - Introduction: institutional/index.md
   - 3rd-Party App Developers:
     - Introduction: third-party/index.md
-
-
 
 extra:
   social:

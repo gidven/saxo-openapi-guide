@@ -1,4 +1,12 @@
 # Welcome to Saxo's OpenAPI Developer Guide
 
-This page contains reference material for developers working with Saxo's OpenAPI (henceforth referred to simply as "the OpenAPI").
+This website contains reference material for developers working with Saxo's OpenAPI.
 
+**Saxo's OpenAPI** (henceforth referred to as "the OpenAPI" or simply "API") is the gateway to Saxo's trading infrastructure, and is available for individual clients, institutional partners, and third parties. Our aim is to make it as easy as possible for developers of any kind to interact successfully with the OpenAPI. Because of the inherent complexities of a financial-services API and the broad range of use cases and client types it supports, the learning material on this page is broker down into 4 distinct sections:
+
+1. **[The Basics](basics/index.md)** - This collection of articles covers **high-level fundamental API concepts** that programmers of any kind are expected to understand and be able implement. You can safely assume that the ideas explained in this section will apply to your specific use-case. This section is divided into two main strands:
+    - [Core Business Concepts](basics/core-business-concepts/index.md), which discuss the basic ideas behind the API and the mechanics that are at play, such as: [add examples here]
+    - [Fundamental Programming Concepts](basics/fundamental-programming-concepts/index.md), which provide guidance on how to build the foundation of your application 'the right way', discussing aspects such as: [add examples here]
+2. **[Individual Developers](individual/index.md)** - If you are a **direct client of Saxo Bank** (or any of its local subsidiaries), you will find useful information in this section. It covers concepts such as [how do I configure my personal trading app] and [can I use certificate-based authentication?]. We aim to update this section with answers to any new question we receive from direct clients developing against the OpenAPI.
+3. **[Institutional Developers](institutional/index.md)** - This section covers articles specifically for developers of Saxo Bank's partners, and focusses on topics such as client management within Saxo's hierarchy structure, signing up new clients through the CRM API, and client reporting.
+4. **[3rd-Party App Developers](third-party/index.md)** - Articles in this collection apply to developers that are looking to integrate Saxo trading functionality and (market) data into their proprietary applications, and distribute their creation to Saxo clients. This section provides details on how to configure your app's interactions with the OpenAPI, ensuring the optimal 'Saxo Experience' for our clients when they log into your platform.
