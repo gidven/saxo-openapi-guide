@@ -1,8 +1,12 @@
 site_name: The Developer's Guide to Saxo's OpenAPI
+site_description: "The #1 reference for developers working with Saxo Bank's OpenAPI."
+site_author: Saxo Bank A/S
+copyright: 'Copyright &copy; 2020 Saxo Bank A/S'
 
 theme:
   name: 'material'
   language: 'en'
+  direction: 'ltr'
   palette:
     primary: 'black'
     accent: 'indigo'
@@ -13,3 +17,26 @@ theme:
   logo:
     icon: 'school'
 #  favicon: 'school'   this would have to be replaced by Saxo logo too at some point
+  feature:
+    tabs: true
+
+nav:
+  - Home: index.md
+  - The Basics:
+    - Introduction: basics/index.md
+  - Individual Developers:
+    - Introduction: indiv/index.md
+  - 3rd-Party App Developers:
+    - Introduction: 3rdparty/index.md
+  - Institutional Developers:
+    - Introduction: insti/index.md
+
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/SaxoBank'
+    - type: 'twitter'
+      link: 'https://twitter.com/saxobank'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/saxo-bank/'
