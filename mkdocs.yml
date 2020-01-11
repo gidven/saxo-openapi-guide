@@ -24,7 +24,7 @@ nav:
   - Home:
     - Welcome: index.md
     - A Brief History: history.md
-    - Saxo's OpenAPI Team: team.md
+    - The Team: team.md
     - Requesting Support: support.md
   - The Basics:
     - Introduction: basics/index.md
@@ -38,6 +38,14 @@ nav:
     - Introduction: institutional/index.md
   - 3rd-Party App Developers:
     - Introduction: third-party/index.md
+  - Updates:
+    - Overview: updates/index.md
+    - Planned Changes: updates/changes.md
+    - Release Notes:
+      - Guide: updates/release-notes/index.md
+      - 2019-12-13 - Breaking: updates/release-notes/2019-12-13.md
+      - 2019-11-25: updates/release-notes/2019-11-25.md
+      - 2019-09-03: updates/release-notes/2019-09-03.md
 
 extra:
   social:
