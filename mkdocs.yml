@@ -10,8 +10,8 @@ theme:
   language: 'en'
   direction: 'ltr'
   palette:
-    primary: 'blue'
-    accent: 'black'
+    primary: 'black'
+    accent: 'indigo'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
