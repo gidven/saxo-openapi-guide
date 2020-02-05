@@ -1,8 +1,18 @@
 # Useful Tools
 
-!!! abstract
-    Developing against the OpenAPI is made easy with a selection of tools that provide useful features for anyone looking to get started quickly.
+??? abstract
+    Developing against the OpenAPI is made easy with a selection of tools that provide useful features for anyone looking to get started quickly. Check out:
 
+    - [The Developer Portal](https://developer.saxo)
+    - [The Tutorial](https://www.developer.saxo/openapi/tutorial)
+    - [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer)
+    - [24-Hour Tokens](https://www.developer.saxo/openapi/token)
+    - [Application Management](https://www.developer.saxo/openapi/appmanagement)
+    - [Postman](https://www.getpostman.com/)
+    - [Fiddler](https://www.telerik.com/fiddler)
+
+---
+  
 To optimize your development efforts while working with Saxo's OpenAPI, the below tools are recommended for any developer. These tools range from 'get to know the platform'-apps to fully-fledged debugging environments. You are invited to use these tools as you progress through the articles on this website, as they provide an excellent way to try the features of the OpenAPI yourself while you learn about them.
 
 ## Tools Provided by Saxo
@@ -24,7 +34,7 @@ The Tutorial is a simple 3-minute click-through guide on the Developer Portal th
 
 ### [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer)
 
-Now that you have acquired a basic understanding of the OpenAPI, let's build some requests ourselves! The Explorer is very similar to tools such as Postman (see below) and lets you create your own requests directly on the portal. It is convenient for on-the-fly debugging and trying out certain endpoints to 'get a feel' for how they behave before implementing them into your own application.
+Now that you have acquired a basic understanding of the OpenAPI, let's build some requests ourselves! The Explorer is very similar to tools such as Postman (see below) and lets you create your own requests directly on the portal. It is convenient for on-the-fly debugging and trying out certain endpoints to 'get a feel' for how they behave before implementing them into your own application. It supports all available API endpoints and includes streaming: you can set up a websocket connection and watch updates flow in real-time.
 
 ![The Saxo Bank OpenAPI Explorer](img/devportal3.png){: style="height:350px;width:auto"}
 

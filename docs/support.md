@@ -1,5 +1,10 @@
 # Requesting Support the Right Way
 
+??? abstract
+    In order for Saxo's support team to provide quality development support, we need your help to perform debugging and provide us with as much information as you can.
+
+---
+
 As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing proper support *relies in large part on the information provided by you*. It is recommended to follow the below steps to analyze the issue you are facing.
 
 ## Step 1: Basic Diagnosis
@@ -42,4 +47,4 @@ Imagine you are about to send a support request and you can only include **1 pie
 
 If you've tried the request demonstrated in [the code block on one of the earlier pages](usage.md#sample-code), you may have noticed that the `X-Correlation` header was indeed included in the response headers from the OpenAPI, as shown in the below screenshot from Postman:
 
-![Postman Example Screenshot](/img/postman1.png)
+![Postman Example Screenshot](img/postman1.png){: style="height:auto;width:auto"}
