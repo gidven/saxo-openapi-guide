@@ -12,16 +12,16 @@ Although it is of course possible that the difficulties you are facing are cause
 
 ## Step 2: Use the Search & Check the FAQ
 
-The search tool at the top of this window is a quick and powerful way to **scan every bit of information** on this website. Make sure to use different combinations of keywords if you are not able to find the information you are looking for and [check the FAQ](basics/faq/index.md) to see if your specific question has come up before. FAQ articles are added progessively for every (unique) OpenAPI question.
+The search tool at the top of this window is a quick and powerful way to **scan every bit of information** on this website. Make sure to use different combinations of keywords if you are not able to find the information you are looking for and [check the FAQ](basics/faq/index.md) to see if your specific question has come up before. FAQ articles are added progressively for every question received by OpenAPI support.
 
 ## Step 3: Email OpenAPI Support
 
-If all of the above did not help you find an answer, the support would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com). Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
+If all of the above did not help you find an answer, the support team would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com). Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
 
 Here's how to **request support like a pro**:
 
 1. Include **a clear description** of the issue/bug/problem/obstacle that you are facing along the lines of:
-> "I am trying to achieve [ X ] so I sent a request to the OpenAPI like [ Y ] and I expected to receive [ Z ] but instead I got [ A ]."
+> "I am trying to achieve [ *business requirement* ] so I sent a request to the OpenAPI such as this [ *request example* ] and I expected to receive [ *desired outcome* ] but instead I got [ *unexpected behavior* ]."
 2. Add the **details of the request** that results in the error. If you followed [Step 1](#step-1-basic-diagnosis), you will have this at hand already. Make sure to include:
     - The URL (including parameters), request method, and (if applicable) the request body
     - Any headers or cookies that are sent with the request
@@ -38,8 +38,8 @@ Here's how to **request support like a pro**:
 
 ### About the `X-Correlation` Header
 
-Imagine you are about to send a support request and you can only include **1 piece of information**, what should it be? Answer: the `X-Correlation` header. The OpenAPI sends out correlation headers with *every response*, which encode important contextual details regarding your requests and allows for **direct log queries**. It goes without saying that this is by far the most useful info!
+Imagine you are about to send a support request and you can only include **1 piece of information**, what should it be? Answer: the `X-Correlation` header. The OpenAPI sends out correlation headers with *every response*, which encode important contextual details regarding your requests and allows for **direct log queries**. It goes without saying that this is by far the most useful info our team could receive from you!
 
 If you've tried the request demonstrated in [the code block on one of the earlier pages](usage.md#sample-code), you may have noticed that the `X-Correlation` header was indeed included in the response headers from the OpenAPI, as shown in the below screenshot from Postman:
 
-![Postman Screenshot](/img/postman1.png)
+![Postman Example Screenshot](/img/postman1.png)
