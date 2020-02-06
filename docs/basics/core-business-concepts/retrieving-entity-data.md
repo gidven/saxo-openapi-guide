@@ -6,9 +6,9 @@
     Endpoints showcased in this article:
 
     - `/root/v1/user`
-    - `/port/v1/users/` (used as collection, by ID, and with the `/me` suffix)
-    - `/port/v1/clients/` (used as collection, by ID, and with the `/me` suffix)
-    - `/port/v1/accounts/` (used as collection, by ID, and with the `/me` suffix)
+    - `/port/v1/users/`
+    - `/port/v1/clients/`
+    - `/port/v1/accounts/`
 
 ---
 
@@ -32,7 +32,7 @@ Before retrieving user, client, and account information from the Portfolio servi
 ```HTTP tab="HTTP" hl_lines="3"
 GET /sim/openapi/root/v1/user HTTP/1.1
 Host: gateway.saxobank.com
-Authorization: Bearer [token]
+Authorization: Bearer [access token]
 Accept: */*
 Cache-Control: no-cache
 Accept-Encoding: gzip, deflate, br
@@ -90,11 +90,11 @@ Continuing the above example with the basic end-client user, let's retrieve data
 ```HTTP tab="HTTP"
 GET /sim/openapi/port/v1/user/me HTTP/1.1
 Host: gateway.saxobank.com
-Authorization: Bearer [token]
+Authorization: Bearer [access token]
 ```
 
 !!! note
-    The above request (and all below requests) are abbreviated for demonstration purposes.
+    The above request (and all following requests) are abbreviated for demonstration purposes.
 
 The response from the OpenAPI contains the below JSON object. Notice that this entity contains some important configuration such as localization settings, asset types that this user is allowed to trade, and whether the client is enabled to retrieve market data through the OpenAPI (details will be discussed in a later article).
 
@@ -126,7 +126,7 @@ In a similar vein, let's get more info on the client that this user belongs to t
 ```HTTP tab="HTTP"
 GET /sim/openapi/port/v1/clients/me HTTP/1.1
 Host: gateway.saxobank.com
-Authorization: Bearer [token]
+Authorization: Bearer [access token]
 ```
 
 The below details are returned by the OpenAPI. Notice that accesible assets are controlled on the client level too, and the response includes further configuration such as position netting settings, the default currency, and the account protection limit (which is enforced on the client level as aggregate of the entire client's holdings). These concepts will be discussed in-depth in later articles.
@@ -163,7 +163,7 @@ And finally, let's check which accounts belong to this client. Notice the traili
 ```HTTP tab="HTTP"
 GET /sim/openapi/port/v1/accounts/me/ HTTP/1.1
 Host: gateway.saxobank.com
-Authorization: Bearer [token]
+Authorization: Bearer [access token]
 ```
 
 The API response contains a lot of settings and configurations that will be discussed in later articles. To highlight a few: accounts can be restricted to certain assets like the users and clients, and some important configuration is included such as the account currency, display name, and type.
