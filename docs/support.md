@@ -45,6 +45,14 @@ Here's how to **request support like a pro**:
 
 Imagine you are about to send a support request and you can only include **1 piece of information**, what should it be? Answer: the `X-Correlation` header. The OpenAPI sends out correlation headers with *every response*, which encode important contextual details regarding your requests and allows for **direct log queries**. It goes without saying that this is by far the most useful info our team could receive from you!
 
-If you've tried the request demonstrated in [the code block on one of the earlier pages](usage.md#sample-code), you may have noticed that the `X-Correlation` header was indeed included in the response headers from the OpenAPI, as shown in the below screenshot from Postman:
+If you've tried the request demonstrated in [the code block on one of the earlier pages](usage.md#sample-code), you may have noticed that the `X-Correlation` header was indeed included in the response headers from the OpenAPI, as shown in the below HTTP response:
 
-![Postman Example Screenshot](img/postman1.png){: style="height:auto;width:auto"}
+```HTTP hl_lines="7"
+HTTP/1.1 200 OK
+Date: Wed, 05 Feb 2020 17:51:52 GMT
+Content-Length: 0
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82
+```
