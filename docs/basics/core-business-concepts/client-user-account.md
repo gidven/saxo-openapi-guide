@@ -21,7 +21,7 @@ The most straightforward case is that of a direct client of Saxo Bank (blue), wh
 graph LR
     O("Saxo (owner)") -.- C(Client)
     U(User) -- login --> C
-    C -- control --> A(Account)
+    C -- controls    --> A(Account)
 
     style O fill:SkyBlue
     style C fill:SkyBlue
@@ -71,28 +71,39 @@ graph LR
     style A3 fill:LightGreen
 ```
 
-## Specific Entity Characteristics
+## Characteristics
 
 ### User
 
 This entity is an access entity with a unique username and password associated to a specific client. Normally a client has a single associated user, but in case of shared accounts or a power-of-attorney setup, a client can have multiple authorized users. Business logic that is applied on the user level:
 
-- Subscriptions for real-time market data, which are tied to individual users (*not* to the client). 
-- Access to (a specific subsection of) trading applications and tools, which is controlled by access profiles.
+- Purchasable subscriptions for real-time market data, which are tied to individual users (*not* to the client). 
+- Access to (a specific subset of) trading applications and tools, which is controlled by user-specific configuration.
+- Operations that users are allowed to perform on accounts linked to the associated client and accounts linked to clients that a top-level client has access to, which is controlled by user roles.
 
 ### Client
 
-This entity is a core entity that constitutes a taxable person or organization (legal entity). It represents the first 'node' of aggregation, which is known as a 'portfolio calculation entity'. Business logic that is applied on this level:
+This entity is a core entity that constitutes a taxable person or organization (legal entity). It represents the default 'node' of aggregation, which is known as a 'portfolio calculation entity'. Business logic that is applied on this level:
 
 - The base currency is set on the client and is the main aggregation currency for all accounts owned by this client. Accounts and positions on accounts that are not in default currency are converted in real-time.
-- Margin exposure is calculated and managed on the the client level, taking into consideration all leveraged products in the accounts that the client owns.
+- Margin exposure is calculated and managed on the client level, taking into consideration all leveraged products in the accounts that the client owns. In some cases, margin calculation can also be tied to an individual account or a group of accounts (see below).
 - General instrument access is controlled on this level, which affects the instruments that associated accounts can trade in.
 
 ### Account
 
-A client has one or more accounts, which are the entities where operations are conducted. While margin is calculated on the client level, all bookings making up the margin occur on the account level and all collateral and credit lines are associated to specific accounts. Business logic present on this level:
+A client always has one or more linked accounts, which are legal entities. Operations such as trading, funding, requesting quotes, etc. are all performed at the account level. While margin is calculated on the client level, all bookings making up the margin occur on the account level and all collateral and credit lines are associated to specific accounts. Business logic present on this level:
 
 - Beyond normal trading accounts, a client may have specialized accounts for commissions, multi-currency settlement, DMA trading, IRAs, AutoTrading, etc.
 - Accounts may be set up for individual margin calculation, overriding the normal client level calculation.
-- Accounts may restrict the instrument types that can be traded on them, and clients can have separate accounts associated to each individual type.
-- Accounts may be configured to perform currency conversion of executed trades at end-of-day rates or at execution time rates (which is the default).
+- Accounts may restrict the instrument types that can be traded on them, and clients can have separate accounts associated to individual instrument type.
+- Accounts may be configured to perform currency conversion for executed trades at end-of-day rates or at execution time rates (which is the default).
+
+## Special Entities
+
+### Account Groups
+
+One or more accounts can also be grouped together into an Account Group to manage margin exposure as a separate entity. This entity only exists as a portfolio calculation entity and does not represent a legal entitiy (it is a collection of legal entities, i.e. accounts). Account Groups may have specific margin requirements and stop out procedures, superseding the default client level calculations . Since no bookings occur on account groups directly, calculations on groups are always performed in the client's base currency.
+
+### Partner Clients
+
+A top-level client which has access to their own hierarchy of underlying clients is usually associated to partners of Saxo Bank such as white label partners or introducing brokers. This particular type of client has a specific setup that aggregates all the underlying clients' accounts at the top level, which allows the partner to control their aggregated margins, exposure, and other portfolio and risk management metrics.
