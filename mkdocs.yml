@@ -33,6 +33,7 @@ nav:
     - Core Business Concepts:
       - Overview: basics/core-business-concepts/index.md
       - The Client-User-Account Model: basics/core-business-concepts/client-user-account.md
+      - Retrieving Entity Data: basics/core-business-concepts/retrieving-entity-data.md
     - Fundamental Programming Concepts:
       - Overview: basics/fundamental-programming-concepts/index.md
     - Frequently Asked Questions:
