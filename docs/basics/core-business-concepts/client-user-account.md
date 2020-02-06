@@ -43,7 +43,7 @@ graph LR
     style A fill:LightGreen
 ```
 
-A client can also own clients itself, which yields a hierarchy. The owner is known as the 'top-level client', which has privileges over the accounts of the clients below it, such as being able to view the accounts or place orders. In the below schema, the users coupled to the end-clients are omitted for brevity.
+A client can also own clients itself, which yields a hierarchy. The owner is known as the 'top-level client', which has privileges over the accounts of the clients below it, such as being able to view their accounts or place orders on them. In the below schema, the users coupled to the end-clients are omitted for brevity.
 
 ```mermaid
 graph LR
@@ -77,7 +77,7 @@ graph LR
 
 This entity is an access entity with a unique username and password associated to a specific client. Normally a client has a single associated user, but in case of shared accounts or a power-of-attorney setup, a client can have multiple authorized users. Business logic that is applied on the user level:
 
-- Purchasable subscriptions for real-time market data, which are tied to individual users (*not* to the client). 
+- Purchasable subscriptions for real-time market data, which are tied to individual users (*not* to the client).
 - Access to (a specific subset of) trading applications and tools, which is controlled by user-specific configuration.
 - Operations that users are allowed to perform on accounts linked to the associated client and accounts linked to clients that a top-level client has access to, which is controlled by user roles.
 
@@ -91,18 +91,18 @@ This entity is a core entity that constitutes a taxable person or organization (
 
 ### Account
 
-A client always has one or more linked accounts, which are legal entities. Operations such as trading, funding, requesting quotes, etc. are all performed at the account level. While margin is calculated on the client level, all bookings making up the margin occur on the account level and all collateral and credit lines are associated to specific accounts. Business logic present on this level:
+A client always has one or more linked accounts, which are legal entities in themselves. Operations such as trading, funding, requesting quotes, etc. are all performed at the account level. While margin is calculated on the client level, all bookings making up the margin occur on the account level and all collateral and credit lines are associated to specific accounts. Business logic present on this level:
 
-- Beyond normal trading accounts, a client may have specialized accounts for commissions, multi-currency settlement, DMA trading, IRAs, AutoTrading, etc.
+- Beyond normal trading accounts, a client may have specialized accounts for commissions, multi-currency settlement, DMA trading, IRAs, ISAs, AutoTrading, etc.
 - Accounts may be set up for individual margin calculation, overriding the normal client level calculation.
-- Accounts may restrict the instrument types that can be traded on them, and clients can have separate accounts associated to individual instrument type.
+- Accounts may restrict the instrument types that can be traded on them, and clients can have separate accounts associated to individual instrument types.
 - Accounts may be configured to perform currency conversion for executed trades at end-of-day rates or at execution time rates (which is the default).
 
 ## Special Entities
 
 ### Account Groups
 
-One or more accounts can also be grouped together into an Account Group to manage margin exposure as a separate entity. This entity only exists as a portfolio calculation entity and does not represent a legal entitiy (it is a collection of legal entities, i.e. accounts). Account Groups may have specific margin requirements and stop out procedures, superseding the default client level calculations . Since no bookings occur on account groups directly, calculations on groups are always performed in the client's base currency.
+One or more accounts can also be grouped together into an Account Group to manage margin exposure as a separate entity. This entity only exists as a portfolio calculation entity and does not represent a legal entitiy (it is a collection of legal entities, i.e. accounts). Account Groups may have specific margin requirements and stop out procedures, superseding the default client level calculations. Since no bookings occur on account groups directly, calculations on groups are always performed in the client's base currency.
 
 ### Partner Clients
 
