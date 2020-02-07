@@ -15,6 +15,13 @@ Although it is of course possible that the difficulties you are facing are cause
 2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to the [basic OpenAPI HTTP request requirements]?
 3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error?
 
+<div>
+    <label>Acces token:
+    <input type="text" id="id-edit"></input>
+    </label>
+    <input type="button">Connect</input>
+</div>
+
 ## Step 2: Use the Search & Check the FAQ
 
 The search tool at the top of this window is a quick and powerful way to **scan every bit of information** on this website. Make sure to use different combinations of keywords if you are not able to find the information you are looking for and [check the FAQ](basics/faq/index.md) to see if your specific question has come up before. FAQ articles are added progressively for every question received by OpenAPI support.
@@ -57,9 +64,4 @@ Expires: -1
 X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82
 ```
 
-<div>
-    <label>Acces token:
-    <input type="text" id="id-edit"></input>
-    </label>
-    <input type="button">Connect</input>
-</div>
+
