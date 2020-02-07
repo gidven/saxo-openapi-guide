@@ -57,6 +57,9 @@ Expires: -1
 X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82
 ```
 
-<div><script></script></div>
-
-<input type="text" id="id-edit">Value</input>
+<div>
+    <label>Acces token:
+    <input type="text" id="id-edit"></input>
+    </label>
+    <input type="button">Connect</input>
+</div>
