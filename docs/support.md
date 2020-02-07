@@ -15,7 +15,7 @@ Although it is of course possible that the difficulties you are facing are cause
 2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to the [basic OpenAPI HTTP request requirements]?
 3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error?
 
-{% include include.html%}
+{% include include.html %}
 
 ## Step 2: Use the Search & Check the FAQ
 
