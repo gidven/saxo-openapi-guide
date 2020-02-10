@@ -56,19 +56,20 @@ nav:
       - "2019-11-25": updates/release-notes/2019-11-25.md
       - "2019-09-03": updates/release-notes/2019-09-03.md
 
-# Required extensions
+
 markdown_extensions:
-  - admonition
-  - pymdownx.extra
-  - pymdownx.details
+  - toc:
+      permalink: true  # for linkable sub-headers in each page
+  - admonition  # for interactive note blocks
+  - pymdownx.details  # requried for adminition
+  - attr_list  # to enable in-line CSS for image resizing etc
   - pymdownx.superfences:
-      custom_fences:
+      custom_fences:  # for easy diagrams
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
-  - attr_list
-  - codehilite:
-      linenums: true
+
+
 
 extra:
   social:
@@ -79,7 +80,5 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/saxo-bank/'
 
-extra_css:
-  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
 extra_javascript:
-  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
+  - https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js
