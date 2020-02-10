@@ -80,6 +80,8 @@ extra:
       link: 'https://twitter.com/saxobank'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/saxo-bank/'
+    - type: 'globe'
+      link: 'https://www.home.saxo'
 
 extra_javascript:
   - https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js
