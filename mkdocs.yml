@@ -36,6 +36,8 @@ nav:
       - Retrieving Entity Data: basics/core-business-concepts/retrieving-entity-data.md
     - Fundamental Programming Concepts:
       - Overview: basics/fundamental-programming-concepts/index.md
+      - Order Placement:
+        - Sending a Stock Order: basics/fundamental-programming-concepts/stock-order.md
     - Frequently Asked Questions:
       - FAQ Guide: basics/faq/index.md
       - How do I authenticate?: basics/faq/authentication.md
