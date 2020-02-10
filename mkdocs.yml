@@ -24,7 +24,7 @@ theme:
 nav:
   - Home:
     - Welcome: index.md
-    - Using the Guide: usage.md
+    - Using this Guide: usage.md
     - Useful Tools: tools.md
     - Requesting Support: support.md
     - Disclaimer: disclaimer.md
@@ -58,15 +58,15 @@ nav:
 
 
 markdown_extensions:
-  - toc:
-      permalink: true  # for linkable sub-headers in each page
+  - toc:  # for linkable sub-headers in each page
+      permalink: true
   - admonition  # for interactive note blocks
   - pymdownx.details  # requried for adminition
   - attr_list  # to enable in-line CSS for image resizing etc
   - footnotes  # for footnotes in articles
   - pymdownx.superfences:
-      custom_fences:  # for easy diagrams
-        - name: mermaid
+      custom_fences:
+        - name: mermaid  # for easy diagrams
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
 
