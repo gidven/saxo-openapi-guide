@@ -26,7 +26,7 @@ This is the go-to resource if you are starting out on the OpenAPI. [Create a dev
 ### [The Tutorial](https://www.developer.saxo/openapi/tutorial)
 
 !!! info
-    The Tutorial and other Developer Portal tools discussed below require an account on the portal before they can be used. See the steps outlines above to create you free account.
+    The Tutorial and other Developer Portal tools discussed below require an account on the portal before they can be used. See the steps outlined above to create you free account.
 
 The Tutorial is a simple 3-minute click-through guide on the Developer Portal that showcases a couple of basic API request/response examples. It provides an excellent introduction into core aspects of the OpenAPI and is generally recommended as a good 'get to know the API'-tool.
 
