@@ -4,6 +4,7 @@ site_description: "The #1 reference for developers working with Saxo Bank's Open
 site_author: Saxo Bank A/S
 copyright: 'Copyright &copy; 2020 Saxo Bank A/S'
 
+
 # MkDocs config
 theme:
   name: 'material'
@@ -19,6 +20,7 @@ theme:
     icon: 'school'
   feature:
     tabs: true
+
 
 # Documentation structure
 nav:
@@ -66,7 +68,7 @@ markdown_extensions:
   - footnotes  # for footnotes in articles
   - pymdownx.superfences:
       custom_fences:
-        - name: mermaid  # for easy diagrams
+        - name: mermaid  # for easy mermaid diagrams
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
 
@@ -81,6 +83,7 @@ extra:
       link: 'https://www.linkedin.com/company/saxo-bank/'
     - type: 'globe'
       link: 'https://www.home.saxo'
+
 
 extra_javascript:
   - https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js
