@@ -5,7 +5,7 @@
 
 ---
 
-The OpenAPI is designed around Saxo's core client structure, and the provided functionality inherits many features from the underlying model. To understand the different aspects of the environment that contains client information and the business logic that applies on different levels across this environment, it is important to recognize that Saxo's systems are organized in a *hierarchical* model. This model generally applies to *any* client and the accounts they hold with Saxo. Aggregation always 'flows up' in this hierarchy and ultimately ends at the top level, which can be a single client or an owner of multiple clients.
+The OpenAPI is designed around Saxo's core client structure, and the provided functionality inherits many features from the underlying model. To understand the different aspects of the environment that contains client information and the business logic that applies on different levels across this environment, it is important to consider that Saxo's systems are organized in a *hierarchical* model. This model generally applies to *any* client and the accounts they hold with Saxo. Aggregation always 'flows up' in this hierarchy and ultimately ends at the top level, which can be a single client or an owner of multiple clients.
 
 ## Three Key Entities
 
@@ -15,7 +15,9 @@ Three entities make up this environment: the **Client**, **Account**, and **User
 - owns one or more accounts (possibly with differing configuration) that operations can be applied to, and
 - (optionally) owns underlying clients that it has control over, enabling hierarchical structures.
 
-The most straightforward case is that of a direct client of Saxo Bank (blue), which is a single client entity owned by Saxo (also blue) with one authorized user (orange), which has full access to the sole account (green) that this client owns:
+The most straightforward case is that of a direct client, which is a single client entity owned by Saxo[^1] (both are blue in the diagram below) with one authorized user (orange), which has full access to the sole account (green) that this client owns:
+
+[^1]: Every client is, through multitude hierarchies, eventually always owned by a Saxo entity, either the head office or a local subsidiary.
 
 ```mermaid
 graph LR

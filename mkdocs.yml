@@ -63,6 +63,7 @@ markdown_extensions:
   - admonition  # for interactive note blocks
   - pymdownx.details  # requried for adminition
   - attr_list  # to enable in-line CSS for image resizing etc
+  - footnotes  # for footnotes in articles
   - pymdownx.superfences:
       custom_fences:  # for easy diagrams
         - name: mermaid
