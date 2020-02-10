@@ -64,12 +64,13 @@ markdown_extensions:
   - pymdownx.details  # requried for adminition
   - attr_list  # to enable in-line CSS for image resizing etc
   - footnotes  # for footnotes in articles
+  - markdown_include.include:
+      base_path: docs
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid  # for easy diagrams
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
-
 
 
 extra:
