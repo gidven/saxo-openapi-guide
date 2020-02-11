@@ -188,7 +188,7 @@ The sequence above represents the standard flow to create a new WebSocket connec
 
 ## Decoding Data Messages
 
-The client application is expected to decode the byte layout of each individual messages, which follows the below pattern:
+The client application is expected to decode the byte layout of each individual message, which follows the below pattern:
 
 | Byte index     | Size (bytes) | Description | Example value |
 |----------------|--------------|-------------|---------------|
