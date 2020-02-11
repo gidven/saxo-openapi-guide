@@ -104,7 +104,7 @@ A client always has one or more linked accounts, which are legal entities in the
 
 ### Account Groups
 
-One or more accounts can also be grouped together into an Account Group to manage margin exposure as a separate entity. This entity only exists as a portfolio calculation entity and does not represent a legal entitiy (it is a collection of legal entities, i.e. accounts). Account Groups may have specific margin requirements and stop out procedures, superseding the default client level calculations. Since no bookings occur on account groups directly, calculations on groups are always performed in the client's base currency.
+One or more accounts can also be grouped together into an Account Group to manage margin exposure as a separate entity. This entity only exists as a portfolio calculation entity and does not represent a legal entity (it is a collection of legal entities, i.e. accounts). Account Groups may have specific margin requirements and stop out procedures, superseding the default client level calculations. Since no bookings occur on account groups directly, calculations on groups are always performed in the client's base currency.
 
 ### Partner Clients
 
