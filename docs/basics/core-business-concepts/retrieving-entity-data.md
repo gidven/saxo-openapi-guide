@@ -69,8 +69,8 @@ The procedure to obtain details on the configuration of users, clients, and acco
 
 The below table describes each of the provided endpoints and their use cases. For most intends and purposes, the `.../me` endpoint suffices as it provides details that are directly relevant to the context of a single end-client user. The endpoints that return data by ID or in bulk are intended to be used by top-level client users to manage their hierarchy, although a single end-client user can obtain their data through these endpoints as well.
             
-| Endpoint                             | Functionality                                                          |
-|                                      |                                                                        |
+| Endpoint                            | Functionality                                                          |
+|-------------------------------------|------------------------------------------------------------------------|
 | `port/v1/users/me`                  | Returns user data for currently logged-in user.                        |
 | `port/v1/users/{ID}`                | Returns user data by specific ID.                                      |
 | `port/v1/users/?ClientKey={KEY}`    | Return a list of all users associated to the provided client key.      |
