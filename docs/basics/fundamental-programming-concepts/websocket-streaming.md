@@ -1,7 +1,7 @@
 # WebSocket Streaming
 
 ??? abstract
-    This article provides an in-depth walkthrough of the OpenAPI WebSocket implementation. It is recommended for anyone working on OpenAPI streaming to study the below carefully, as it includes important considerations around correct management of WebSocket connections, and optimal use of this solution.
+    This article provides an in-depth walkthrough of the OpenAPI WebSocket implementation. It is recommended for anyone working on OpenAPI streaming to study the below carefully, as it includes important considerations around correct management of WebSocket connections and optimal use of this solution.
 
 ---
 
@@ -74,7 +74,7 @@ The sequence above represents the standard flow to create a new WebSocket connec
     !!! Note
         The current WebSocket version supported by the OpenAPI is `13`. Client libraries using outdated versions will receive a `HTTP 426 Upgrade Required` response when attempting to connect to the streaming server.
 
-2. **Receive Confirmation.** The streaming server responds with `HTTP 101 Switching Protocols` to confirm that the connection has been established. This response includes a `Connection: Upgrade` and a `Upgrade: websocket` header, as well as a hash of the key provided by the client in the `Sec-WebSocket-Accept` header (which prevents caching proxies from interfering with the handshake request).
+2. **Receive Confirmation.** The streaming server responds with `HTTP 101 Switching Protocols` to confirm that the connection has been established. This response includes a `Connection: Upgrade` and a `Upgrade: websocket` header, as well as a hash of the key provided by the client in the `Sec-WebSocket-Accept` header, which prevents caching proxies from interfering with the opening handshake.
 
     ```HTTP
     HTTP/1.1 101 Switching Protocols
@@ -145,7 +145,7 @@ The sequence above represents the standard flow to create a new WebSocket connec
 
 5. **Initiate Streaming.** Behind the scenes, the OpenAPI automatically instructs the streaming server to start sending updates on the WebSocket connection for the new subscription. These updates will be buffered if the subscription request is received before the WebSocket connection is created to ensure consistency on the client side.
 
-6. **Receive Updates.** The client now receives data messages through the WebSocket connection. These messages are sent as a stream over a series of binary WebSocket frames. Each WebSocket frame can contain multiple data messages, and data messages can be split over several WebSocket frames, in which case a continuation frame follows. The `FIN` bit on each frame indicates whether the contained data completes a data message (see specification [here](https://tools.ietf.org/html/rfc6455#section-5.2)). Frame B in the below diagram only contains part of data message 3, which should be completed using the first half of frame C.
+6. **Receive Updates.** The client now receives data messages through the WebSocket connection. These messages are sent as a stream over a series of binary WebSocket frames. Each WebSocket frame can contain multiple data messages, and data messages can be split over several WebSocket frames, in which case a continuation frame follows. The `FIN` bit on each frame indicates whether the contained data completes a data message (see specification [here](https://tools.ietf.org/html/rfc6455#section-5.2)). Frame B in the below diagram only contains part of data message 3, which should be completed using the first half of frame C. Most client libraries handle these cases automatically without requiring additional configuration.
 
     ```
                         +---------------+-------------+-------------+
@@ -155,7 +155,7 @@ The sequence above represents the standard flow to create a new WebSocket connec
                         +-------+-------+-------------------+-------+
     ```
 
-    The binary data contained in the WebSocket frames needs to be decoded in the client application (see the byte layout below). The frame includes a the `RefrenceId` of the subscription that it belongs to. The data messages are always in JSON format and contain *only* fields that changed (so-called **'delta updates'**).[^3] For instance, the first update message for the EURUSD price subscription created above could look like this:
+    The binary data contained in the data messages needs to be decoded by the client application (see the byte layout below). The message includes the `RefrenceId` of the subscription that it belongs to. The data messages are always in JSON format and contain *only* fields that changed (so-called **'delta updates'**).[^3] For instance, the first update message for the EURUSD price subscription created above could look like this:
 
     ```JSON
     [
@@ -215,7 +215,7 @@ In the above overview, note that:
 
 ## Removing a Subscription
 
-When a subscription is no longer needed, for instance when the user has 'moved on' to a different section in the app's UI that does not require certain data to continue flowing, the app is required to clean up unused subscriptions. This prevents unnecessary overhead and ensures that the session stays within throttling limits (see below).
+When a subscription is no longer needed, for instance when the user has 'moved on' to a different section in the app's UI that does not require certain data to continue flowing, the app is required to perform cleanup. This prevents unnecessary overhead and ensures that the session stays within throttling limits (see below).
 
 ```HTTP
 DELETE /sim/openapi/trade/v1/infoprices/subscriptions/{ContextID}/{SubscriptionReference} HTTP/1.1
@@ -232,10 +232,10 @@ The client application is expected to decode the byte layout of each individual 
 | 0              | 8            | **Message identifier** <br/> 64-bit little-endian unsigned integer uniquely identifying each message, starting at `1` for the first message. Can roll over or be reset during a session. | `31` |
 | 8              | 2            | **Reserved** <br/> Reserved bytes for future use - to be ignored by the client application. | |
 | 10             | 1            | **Reference ID size** `RefSize` <br/> Number of bytes that make up the Reference ID of the subscription that this message belongs to. | `15` |
-| 11             | `RefSize`    | **Reference ID** <br/> ASCII-encoded Reference ID corresponding to the subscription that this message belongs to or to pre-defined control messages, which always start with and underscore `_` (see below). | `SubscriptionReference`  or `_heartbeat` |
+| 11             | `RefSize`    | **Reference ID** <br/> ASCII-encoded Reference ID corresponding to the subscription that this message belongs to or to pre-defined control messages, which always start with an underscore `_` (see below). | `SubscriptionReference`  or `_heartbeat` |
 | 11 + `RefSize` | 1            | **Payload format** <br/> 8-bit unsigned integer signaling the format of the payload. Value will be `0` for data messages and control messages to signal payload is a UTF-8 encoded text string containing JSON. | `0` |
 | 12 + `RefSize` | 4            | **Payload size** `PlSize` <br/> 32-bit little-endian unsigned integer indicating the size of the payload contained in this message. | `108` |
-| 16 + `RefSize` | `PlSize`     | **Message payload** <br/> UTF-8 encoded message payload, which decodes to a string representing a JSON object. This string should be deserialized into a JSON object. | *See update message above* |
+| 16 + `RefSize` | `PlSize`     | **Message payload** <br/> UTF-8 encoded message payload, which decodes to a string representing a JSON object. This string should be deserialized into a JSON object by the client application. | *See update message above* |
 
 
 ## Disconnecting and Reconnecting
