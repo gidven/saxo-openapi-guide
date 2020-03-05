@@ -12,8 +12,8 @@ As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece 
 Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, requests are often received from developers that are digging into tracebacks originating from a flaw in their *own* application. If you believe the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:
 
 1. **Analyze the traceback** (or logs) provided by your development environment. Does it indicate that all processes are working fine within the app and the issue is in fact caused when a request is sent to (or received from) the OpenAPI?
-2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to the [basic OpenAPI HTTP request requirements]?
-3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error?
+2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler){: class="external-link"} to simplify this process. Does the request conform to the [basic OpenAPI HTTP request requirements]?
+3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/){: class="external-link"}, or directly from the command line using `curl`. Does this result in the same response/error?
 
 {% include include.html %}
 
@@ -23,7 +23,7 @@ The search tool at the top of this window is a quick and powerful way to **scan 
 
 ## Step 3: Email OpenAPI Support
 
-If all of the above did not help you find an answer, the support team would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com). Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
+If all of the above did not help you find an answer, the support team would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com){: class="external-link"}. Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
 
 Here's how to **request support like a pro**:
 
