@@ -1,8 +1,10 @@
 # Project info
 site_name: The Developer's Guide to Saxo's OpenAPI
 site_description: "The #1 reference for developers working with Saxo Bank's OpenAPI."
-site_author: Saxo Bank A/S
-copyright: 'Copyright &copy; 2020 Saxo Bank A/S'
+site_author: Gid van der Ven
+copyright: 'Copyright &copy; 2020 Gid van der Ven'
+repo_url: https://github.com/gidven/saxo-openapi-guide
+edit_uri: /gidven/saxo-openapi-guide/blob/master/docs
 
 
 # MkDocs config
@@ -72,6 +74,12 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_div_format
   - codehilite:
       guess_lang: False
+
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: timeago
 
 
 extra:
