@@ -15,7 +15,7 @@ Every article is pre-faced by an **Abstract** providing a succinct summary of th
 !!! warning "Take care when you see these blocks!"
     Warning blocks like this one inform the reader that the topic under discussion might result in an adverse outcome if the reader applies the presented code or concepts incorrectly.
 
-In addition, this guide provides links to many online resources to offer as much context as possible. All links annotated by the "🡭" symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
+In addition, this guide provides links to many online resources to offer as much context as possible. All links annotated by the "🡕" symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
 
 ## Sample Code
 
