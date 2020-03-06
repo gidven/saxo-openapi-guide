@@ -3,13 +3,13 @@
 ??? abstract
     Developing against the OpenAPI is made easy with a selection of tools that provide useful features for anyone looking to get started quickly. Check out:
 
-    - [The Developer Portal](https://developer.saxo){: class="external-link"}
-    - [The Tutorial](https://www.developer.saxo/openapi/tutorial){: class="external-link"}
-    - [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer){: class="external-link"}
-    - [24-Hour Tokens](https://www.developer.saxo/openapi/token){: class="external-link"}
-    - [Application Management](https://www.developer.saxo/openapi/appmanagement){: class="external-link"}
-    - [Postman](https://www.getpostman.com/){: class="external-link"}
-    - [Fiddler](https://www.telerik.com/fiddler){: class="external-link"}
+    - [The Developer Portal](https://developer.saxo){: target="_blank"}
+    - [The Tutorial](https://www.developer.saxo/openapi/tutorial){: target="_blank"}
+    - [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer){: target="_blank"}
+    - [24-Hour Tokens](https://www.developer.saxo/openapi/token){: target="_blank"}
+    - [Application Management](https://www.developer.saxo/openapi/appmanagement){: target="_blank"}
+    - [Postman](https://www.getpostman.com/){: target="_blank"}
+    - [Fiddler](https://www.telerik.com/fiddler){: target="_blank"}
 
 ---
   
@@ -17,13 +17,13 @@ To optimize your development efforts while working with Saxo's OpenAPI, the belo
 
 ## Tools Provided by Saxo
 
-### [The Developer Portal](https://developer.saxo){: class="external-link"}
+### [The Developer Portal](https://developer.saxo){: target="_blank"}
 
-This is the go-to resource if you are starting out on the OpenAPI. [Create a developer account](https://www.developer.saxo/accounts/sim/signup){: class="external-link"} on the portal to fully leverage the features it provides (see below). This account lives in Saxo's Simulation (or 'Demo') environment and is pre-configured to be used as OpenAPI user. You can log into [SaxoTraderGO](https://www.saxotrader.com/sim/login/){: class="external-link"} or [SaxoTraderPRO](https://www.home.saxo/platforms/saxotraderpro){: class="external-link"} with this account to see what a 'standard' Saxo configuration looks like. It is generally recommended to check these platforms out if you haven't seen them already - they are built entirely on top of the OpenAPI infrastructure (observing network traffic from these apps can tell you a lot about appropriate OpenAPI usage).
+This is the go-to resource if you are starting out on the OpenAPI. [Create a developer account](https://www.developer.saxo/accounts/sim/signup){: target="_blank"} on the portal to fully leverage the features it provides (see below). This account lives in Saxo's Simulation (or 'Demo') environment and is pre-configured to be used as OpenAPI user. You can log into [SaxoTraderGO](https://www.saxotrader.com/sim/login/){: target="_blank"} or [SaxoTraderPRO](https://www.home.saxo/platforms/saxotraderpro){: target="_blank"} with this account to see what a 'standard' Saxo configuration looks like. It is generally recommended to check these platforms out if you haven't seen them already - they are built entirely on top of the OpenAPI infrastructure (observing network traffic from these apps can tell you a lot about appropriate OpenAPI usage).
 
 ![The Saxo Bank Developer Portal](img/devportal1.png){: style="height:350px;width:auto"}
 
-### [The Tutorial](https://www.developer.saxo/openapi/tutorial){: class="external-link"}
+### [The Tutorial](https://www.developer.saxo/openapi/tutorial){: target="_blank"}
 
 !!! info
     The Tutorial and other Developer Portal tools discussed below require an account on the portal before they can be used. See the steps outlined above to create you free account.
@@ -32,17 +32,17 @@ The Tutorial is a simple 3-minute click-through guide on the Developer Portal th
 
 ![The Saxo Bank OpenAPI Tutorial](img/devportal2.png){: style="height:350px;width:auto"}
 
-### [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer){: class="external-link"}
+### [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer){: target="_blank"}
 
 Now that you have acquired a basic understanding of the OpenAPI, let's build some requests ourselves! The Explorer is very similar to tools such as Postman (see below) and lets you create your own requests directly on the portal. It is convenient for on-the-fly debugging and trying out certain endpoints to 'get a feel' for how they behave before implementing them into your own application. It supports all available API endpoints and includes streaming: you can set up a webSocket connection and watch updates flow in real-time.
 
 ![The Saxo Bank OpenAPI Explorer](img/devportal3.png){: style="height:350px;width:auto"}
 
-### [24-Hour Tokens](https://www.developer.saxo/openapi/token){: class="external-link"}
+### [24-Hour Tokens](https://www.developer.saxo/openapi/token){: target="_blank"}
 
 At this point, you probably want to start calling the OpenAPI from within your own application/environment. To make this easy, Saxo provides 24-hour tokens which you can hard-code into the sample you are building (practically skipping the authentication step altogether). Accept the disclaimer on the portal and get started with requests inside your own app right away!
 
-### [Application Management](https://www.developer.saxo/openapi/appmanagement){: class="external-link"}
+### [Application Management](https://www.developer.saxo/openapi/appmanagement){: target="_blank"}
 
 You can register an application in Saxo's SIM environment on the above link and obtain your own `AppKey` and `AppSecret`, which can be used to request access and refresh tokens through [Saxo's standard OAuth implementation]. This is considered the final step in your journey towards a 'real-life' app.
 
@@ -52,10 +52,10 @@ You can register an application in Saxo's SIM environment on the above link and 
 
 The below apps can be used for free and are generally considered exceptional Web/API debugging tools. Saxo is not affiliated with any of these platforms.
 
-### [Postman](https://www.getpostman.com/){: class="external-link"}
+### [Postman](https://www.getpostman.com/){: target="_blank"}
 
 An open-source API debugging app that allows the user to conveniently test any (Web) API. Very similar to [the Explorer](#the-openapi-explorer) discussed above, but allows for more extensive in-depth request configuration. Great way to quickly tinker with OpenAPI requests before implementing them into your own application.
 
-### [Fiddler](https://www.telerik.com/fiddler){: class="external-link"}
+### [Fiddler](https://www.telerik.com/fiddler){: target="_blank"}
 
 A comprehensive web debugging proxy that allows the user to monitor their app's behavior and catch failing API calls in real-time. Especially useful when your app starts to scale out and sends numerous requests to the OpenAPI (asynchronously). Strongly recommended in case you run into (potential) bugs or issues as it records valuable information that the Saxo team needs to provide efficient support (see next section).
