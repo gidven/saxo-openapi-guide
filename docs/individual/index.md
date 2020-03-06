@@ -1,1 +1,1 @@
-# Individual Developers
+article_title: Individual Developers

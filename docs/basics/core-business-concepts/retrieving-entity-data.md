@@ -1,4 +1,4 @@
-# Retrieving Entity Data
+article_title: Retrieving Entity Data
 
 ??? abstract
     Almost all OpenAPI endpoints depend on configuration settings that can be retrieved for each of the entities discussed [in the previous article](client-user-account.md). It is therefore important to understand how and where configuration can be retrieved to make sure your application behaves accordingly.
@@ -9,8 +9,6 @@
     - `port/v1/users/`
     - `port/v1/clients/`
     - `port/v1/accounts/`
-
----
 
 Information regarding the three key entities that make up the organizational hierarchy in Saxo's systems is available in the OpenAPI on different endpoints located in the Root and Portfolio service groups.
 

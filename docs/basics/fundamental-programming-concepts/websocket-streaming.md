@@ -1,9 +1,7 @@
-# WebSocket Streaming
+article_title: WebSocket Streaming
 
 ??? abstract
     This article provides an in-depth walkthrough of the OpenAPI WebSocket implementation. It is recommended for anyone working on OpenAPI streaming to study the below carefully, as it includes important considerations around correct management of WebSocket connections and optimal use of this solution.
-
----
 
 ## Introduction
 

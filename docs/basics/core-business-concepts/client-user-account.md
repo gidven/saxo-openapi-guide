@@ -1,9 +1,7 @@
-# The Client-User-Account Model
+article_title: The Client-User-Account Model
 
 ??? abstract
     Three key elements make up Saxo's internal hierarchy model: the client, user, and account. These entities are at the basis of all OpenAPI endpoints and functions, and distinct business logic and rules apply to each entity differently.
-
----
 
 The OpenAPI is designed around Saxo's core client structure, and the provided functionality inherits many features from the architectural model. To understand the different aspects of the environment that contains client information and the business logic that applies on different levels across this environment, it is important to consider that Saxo's systems are organized in a *hierarchical* structure. This model generally applies to *any* client and the accounts they hold with Saxo. Aggregation always 'flows up' in this hierarchy and ultimately ends at the top level, which can be a single client or an owner of multiple clients.
 
