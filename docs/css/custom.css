@@ -15,10 +15,6 @@ h1.article-title {
     margin-bottom: 25px;
 }
 
-.md-typeset h2 {
-    /*margin-top: 1rem;*/
-}
-
 details.abstract {
     border-left-color: #e8e8e8 !important;
 }
