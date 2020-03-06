@@ -2,5 +2,15 @@ a[target="_blank"]::after {
         /* \00A0 is a non-breaking space
         to make the mark be on the same line as the link
     */
-    content: "\00A0🡕";
+    font-family: FontAwesome;
+    font-size: 0.8em;
+    content: "\00A0\f08e";
+}
+
+h1.article-title {
+    margin-bottom: 0;
+}
+
+.md-source-date {
+    margin-bottom: 25px;
 }

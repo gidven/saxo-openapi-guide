@@ -1,9 +1,7 @@
-# Requesting Support the Right Way
+article_title: Requesting Support the Right Way
 
 ??? abstract
     In order for Saxo's support team to provide quality development support, we need your help to perform debugging and provide us with as much information as you can.
-
----
 
 As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing proper support *relies in large part on the information provided by you*. It is recommended to follow the below steps to analyze the issue you are facing.
 

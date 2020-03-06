@@ -1,4 +1,4 @@
-# Useful Tools
+article_title: Useful Tools
 
 ??? abstract
     Developing against the OpenAPI is made easy with a selection of tools that provide useful features for anyone looking to get started quickly. Check out:
@@ -10,8 +10,6 @@
     - [Application Management](https://www.developer.saxo/openapi/appmanagement){: target="_blank"}
     - [Postman](https://www.getpostman.com/){: target="_blank"}
     - [Fiddler](https://www.telerik.com/fiddler){: target="_blank"}
-
----
   
 To optimize your development efforts while working with Saxo's OpenAPI, the below tools are recommended for any developer. These tools range from 'get to know the platform'-apps to fully-fledged debugging environments. You are invited to use these tools as you progress through the articles on this website, as they provide an excellent way to try the features of the OpenAPI yourself while you learn about them.
 

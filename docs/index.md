@@ -1,4 +1,4 @@
-# Welcome to Saxo's OpenAPI Developer Guide
+article_title: Welcome to Saxo's OpenAPI Developer Guide
 
 This website contains reference material for developers working with Saxo's OpenAPI.
 

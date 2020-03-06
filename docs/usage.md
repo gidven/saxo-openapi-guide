@@ -1,4 +1,4 @@
-# Using the OpenAPI Guide
+article_title: Using the OpenAPI Guide
 
 ## Structure
 
