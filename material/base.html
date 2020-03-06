@@ -180,9 +180,9 @@
               
             </div>
           {% endif %}
-          
+          <span class="article-text-content">
                 {{ page.content }}
-
+              </span>
               {% endblock %}
             </article>
           </div>
@@ -219,5 +219,13 @@
         <script src="{{ path | url }}"></script>
       {% endfor %}
     {% endblock %}
+    <script>
+      links = document.getElementsByTagName('a')
+      for(let i = 0; i < links.length; i++) {
+        if(links[i].getAttribute('href').startsWith('http')) {
+          links[i].target = '_blank'
+        }
+      }
+    </script>
   </body>
 </html>
