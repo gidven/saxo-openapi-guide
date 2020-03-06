@@ -14,3 +14,7 @@ h1.article-title {
 .md-source-date {
     margin-bottom: 25px;
 }
+
+.md-typeset h2 {
+    margin-top: 1rem;
+}
