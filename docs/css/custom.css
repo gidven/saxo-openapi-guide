@@ -16,5 +16,18 @@ h1.article-title {
 }
 
 .md-typeset h2 {
-    margin-top: 1rem;
+    /*margin-top: 1rem;*/
+}
+
+details.abstract {
+    border-left-color: #e8e8e8 !important;
+}
+
+details.abstract summary {
+    background-color: #f9f9f9 !important;
+    border-bottom-color: #e8e8e8 !important;
+}
+
+details.abstract summary::before {
+    color: #8c8c8c !important;
 }
