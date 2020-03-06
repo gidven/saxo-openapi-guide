@@ -1,0 +1,27 @@
+.article-text-content a[href^="http"]::after {
+        /* \00A0 is a non-breaking space */
+    font-family: FontAwesome;
+    font-size: 0.8em;
+    content: "\00A0\f08e";
+}
+
+h1.article-title {
+    margin-bottom: 0;
+}
+
+.md-source-date {
+    margin-bottom: 25px;
+}
+
+details.abstract {
+    border-left-color: #e8e8e8 !important;
+}
+
+details.abstract summary {
+    background-color: #f9f9f9 !important;
+    border-bottom-color: #e8e8e8 !important;
+}
+
+details.abstract summary::before {
+    color: #8c8c8c !important;
+}

@@ -1,0 +1,1337 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="The #1 reference for developers working with Saxo Bank's OpenAPI.">
+      
+      
+      
+        <meta name="author" content="Gid van der Ven">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Retrieving Entity Data - The Developer's Guide to Saxo's OpenAPI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.82a18eb7.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#user-permissions" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="The Developer's Guide to Saxo's OpenAPI" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              The Developer's Guide to Saxo's OpenAPI
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Retrieving Entity Data
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link md-tabs__link--active">
+          The Basics
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../individual/" class="md-tabs__link">
+          Individual Developers
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../institutional/" class="md-tabs__link">
+          Institutional Developers
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../third-party/" class="md-tabs__link">
+          3rd-Party App Developers
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../updates/" class="md-tabs__link">
+          Updates
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="The Developer's Guide to Saxo's OpenAPI" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    The Developer's Guide to Saxo's OpenAPI
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/gidven/saxo-openapi-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../usage/" title="Using this Guide" class="md-nav__link">
+      Using this Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tools/" title="Useful Tools" class="md-nav__link">
+      Useful Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../support/" title="Requesting Support" class="md-nav__link">
+      Requesting Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../disclaimer/" title="Disclaimer" class="md-nav__link">
+      Disclaimer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      The Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        The Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Core Business Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Core Business Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../client-user-account/" title="The Client-User-Account Model" class="md-nav__link">
+      The Client-User-Account Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Retrieving Entity Data
+      </label>
+    
+    <a href="./" title="Retrieving Entity Data" class="md-nav__link md-nav__link--active">
+      Retrieving Entity Data
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-permissions" class="md-nav__link">
+    User Permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-details-on-each-entity" class="md-nav__link">
+    Retrieving Details on Each Entity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-details" class="md-nav__link">
+    User Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-details" class="md-nav__link">
+    Client Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-details" class="md-nav__link">
+    Account Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-take-aways" class="md-nav__link">
+    Key Take-Aways
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Fundamental Programming Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Fundamental Programming Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamental-programming-concepts/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamental-programming-concepts/websocket-streaming/" title="WebSocket Streaming" class="md-nav__link">
+      WebSocket Streaming
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Frequently Asked Questions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Frequently Asked Questions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ Guide" class="md-nav__link">
+      FAQ Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/authentication/" title="How do I authenticate?" class="md-nav__link">
+      How do I authenticate?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Individual Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Individual Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../individual/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Institutional Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Institutional Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../institutional/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      3rd-Party App Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        3rd-Party App Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../third-party/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Updates
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Updates
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/changes/" title="Planned Changes" class="md-nav__link">
+      Planned Changes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Release Notes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Release Notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/release-notes/" title="Guide" class="md-nav__link">
+      Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/release-notes/2019-12-13/" title="2019-12-13 - Breaking" class="md-nav__link">
+      2019-12-13 - Breaking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/release-notes/2019-11-25/" title="2019-11-25" class="md-nav__link">
+      2019-11-25
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/release-notes/2019-09-03/" title="2019-09-03" class="md-nav__link">
+      2019-09-03
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-permissions" class="md-nav__link">
+    User Permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-details-on-each-entity" class="md-nav__link">
+    Retrieving Details on Each Entity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-details" class="md-nav__link">
+    User Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-details" class="md-nav__link">
+    Client Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-details" class="md-nav__link">
+    Account Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-take-aways" class="md-nav__link">
+    Key Take-Aways
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+              <h1 class="article-title">Retrieving Entity Data</h1>
+              
+            
+            <div class="md-source-date">
+              <small>
+                
+                  Last update: <span class='timeago' datetime='1583506356000' locale='en'></span>
+                
+                
+                 - 
+                <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/core-business-concepts/retrieving-entity-data.md" title="Edit this page">Edit on GitHub <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+               
+              </small>
+              
+            </div>
+          
+          <span class="article-text-content">
+                <details class="abstract"><summary>Abstract</summary><p>Almost all OpenAPI endpoints depend on configuration settings that can be retrieved for each of the entities discussed <a href="../client-user-account/">in the previous article</a>. It is therefore important to understand how and where configuration can be retrieved to make sure your application behaves accordingly.</p>
+<p>Endpoints discussed in this article:</p>
+<ul>
+<li><code>root/v1/user</code></li>
+<li><code>port/v1/users/</code></li>
+<li><code>port/v1/clients/</code></li>
+<li><code>port/v1/accounts/</code></li>
+</ul>
+</details>
+<p>Information regarding the three key entities that make up the organizational hierarchy in Saxo's systems is available in the OpenAPI on different endpoints located in the Root and Portfolio service groups.</p>
+<p>The configuration of these entities is static for the most part, and cannot be changed by users directly. The examples shown below are all taken from a default simulation developer account. This setup closely follows what a (direct) client of Saxo would be configured with in the live environment. A developer account can be created for free on the <a href="https://www.developer.saxo/accounts/sim/signup">Developer Portal</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The developer account client has a single associated user, and a single trading account with access to a limited subset of Saxo's entire instrument universe (Forex, CFDs, Equities, and Bonds).</p>
+</div>
+<p>The endpoints discussed below generally come in three flavors, which allows you to interact with each resource in multiple ways:</p>
+<ol>
+<li>A <code>.../me</code> endpoint, which automatically returns the relevant information that is associated <em>only</em> to the currently logged-in client (identified by the token used to authorize the request). Example: <code>port/v1/accounts/me</code>.</li>
+<li>A <code>.../{identifier}</code> endpoint, which returns information about a specific user, client, or account entity using its unique ID. Example: <code>port/v1/accounts/MXt3pDqb5VEujcdqBV1cmQ==</code>.</li>
+<li>A collection such as <code>port/v1/accounts/</code>, which returns all accounts associated with a client.</li>
+</ol>
+<h2 id="user-permissions">User Permissions<a class="headerlink" href="#user-permissions" title="Permanent link">&para;</a></h2>
+<p>Before retrieving user, client, and account information from the Portfolio service group, let's first check the permissions of the currently logged-in user through the <code>root/v1/user</code> endpoint. This endpoint lives in the Root service group, which provides basic functionality for diagnostics, permissions, and session features. This service group does not require specific permissions in order to be used (i.e. any user can call these endpoints if they are authorized).</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nf">GET</span> <span class="nn">/sim/openapi/root/v1/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="hll"><span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</span><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</pre></div></div>
+</div>
+<p>The response from the OpenAPI contains the below JSON object. Notice that the role assigned to this standard demo user (the developer account in the simulation system) is <code>"Default"</code>, which enables the <code>"OAPI.OP.View"</code> operation required to use the portfolio endpoints discussed below and pull out additional client details. Furthermore, this user has access right flag <code>"CanTrade"</code> set to <code>true</code>, which means it is authorized to place orders on the accounts owned by this client.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;AccessRights&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="err">...</span>
+    <span class="nt">&quot;CanTakePriceSession&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;CanTrade&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span>    <span class="err">...</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="mi">9073876</span><span class="p">,</span>
+  <span class="nt">&quot;Operations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">...</span>
+    <span class="s2">&quot;OAPI.OP.ViewOwnedClients&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="s2">&quot;OAPI.OP.View&quot;</span><span class="p">,</span>
+</span>    <span class="err">...</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;Roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="hll">    <span class="s2">&quot;OAPI.Roles.Default&quot;</span>
+</span>  <span class="p">],</span>
+  <span class="nt">&quot;UserId&quot;</span><span class="p">:</span> <span class="mi">9073876</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="retrieving-details-on-each-entity">Retrieving Details on Each Entity<a class="headerlink" href="#retrieving-details-on-each-entity" title="Permanent link">&para;</a></h2>
+<p>The procedure to obtain detailed information on the configuration of clients, users, and accounts follows a similarly-structured endpoints design. All of the below functionality is provided by the Portfolio service group, which not only contains configuration data for static entities, but also provides functionality to retrieve dynamic client data such as positions, orders, exposures, and account balances (which will be discussed in a later article).</p>
+<p>The below table describes each of the provided endpoints and their use cases. For most intends and purposes, the <code>.../me</code> endpoint suffices as it provides details that are directly relevant to the context of a single end-client user. The endpoints that return data by ID or in bulk are intended to be used by top-level client users to manage their hierarchy, although a single end-client user can obtain their data through these endpoints as well.</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>port/v1/users/me</code></td>
+<td>Returns user data for currently logged-in user.</td>
+</tr>
+<tr>
+<td><code>port/v1/users/{UserKey}</code></td>
+<td>Returns user data by user key.</td>
+</tr>
+<tr>
+<td><code>port/v1/users/?ClientKey={ClientKey}</code></td>
+<td>Return a list of all users associated to the provided client key.</td>
+</tr>
+<tr>
+<td><code>port/v1/clients/me</code></td>
+<td>Returns client data for client that the logged-in user belongs to.</td>
+</tr>
+<tr>
+<td><code>port/v1/clients/{ClientKey}</code></td>
+<td>Returns client data by client key.</td>
+</tr>
+<tr>
+<td><code>port/v1/clients/?OwnerKey={ClientKey}</code></td>
+<td>Return a list of clients owned by the provided owner key (client key).</td>
+</tr>
+<tr>
+<td><code>port/v1/accounts/me</code></td>
+<td>Returns all accounts for the client that the logged-in user belongs to.</td>
+</tr>
+<tr>
+<td><code>port/v1/accounts/{AccountKey}</code></td>
+<td>Returns account data by account key.</td>
+</tr>
+<tr>
+<td><code>port/v1/accounts/?ClientKey={ClientKey}</code></td>
+<td>Return a list of all accounts linked to the provided client key.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="user-details">User Details<a class="headerlink" href="#user-details" title="Permanent link">&para;</a></h3>
+<p>Continuing the above example with the standard end-client user, let's retrieve data regarding this user by sending the below request to the OpenAPI.</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/user/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</pre></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above request (and all following requests) are abbreviated for demonstration purposes.</p>
+</div>
+<p>The response from the OpenAPI contains the below JSON object. Notice that this entity contains some important configuration such as localization settings, asset types that this user is allowed to trade, and whether the client is enabled to retrieve market data through the OpenAPI (details will be discussed in a later article).</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ClientKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Culture&quot;</span><span class="p">:</span> <span class="s2">&quot;en-US&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;Language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;LastLoginStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Successful&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;LastLoginTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-06T13:12:45.560000Z&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span>    <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+    <span class="err">...</span>
+  <span class="p">],</span>
+<span class="hll">  <span class="nt">&quot;MarketDataViaOpenApiTermsAccepted&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span>  <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;User Name&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;TimeZoneId&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+  <span class="nt">&quot;UserId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;UserKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="client-details">Client Details<a class="headerlink" href="#client-details" title="Permanent link">&para;</a></h3>
+<p>In a similar vein, let's get more info on the client that this user belongs to through the below request.</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/clients/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</pre></div></div>
+</div>
+<p>The below details are returned by the OpenAPI. Notice that accessible assets are controlled on the client level too, and the response includes further configuration such as position netting settings, the default currency, and the account protection limit (which is enforced on the client level as aggregate of the entire client's holdings). These concepts will be discussed in-depth in later articles.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+<span class="hll">  <span class="nt">&quot;AccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">,</span>
+</span>  <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+  <span class="err">...</span>
+<span class="hll">  <span class="nt">&quot;DefaultCurrency&quot;</span><span class="p">:</span> <span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;ForceOpenDefaultValue&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;IsMarginTradingAllowed&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;IsVariationMarginEligible&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+    <span class="err">...</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;LegalAssetTypesAreIndicative&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;MarginCalculationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;MarginMonitoringMode&quot;</span><span class="p">:</span> <span class="s2">&quot;Margin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;MutualFundsCashAmountOrderCurrency&quot;</span><span class="p">:</span> <span class="s2">&quot;Instrument&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;User Name&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;PositionNettingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;EndOfDay&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;SupportsAccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="account-details">Account Details<a class="headerlink" href="#account-details" title="Permanent link">&para;</a></h3>
+<p>And finally, let's check which accounts belong to this client. Notice the trailing slash at the end of the URI - in true REST fashion, this resource is a collection of account objects and therefore ends in a trailing slash (as opposed to the above examples which only return a single user or client object).</p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/accounts/me/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</pre></div></div>
+</div>
+<p>The API response contains a lot of settings and configurations that will be discussed in later articles. To highlight a few: accounts can be restricted to certain assets (like the users and clients), and some important configuration is included such as the account currency, display name, and type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Endpoints that return collections of objects generally follow the same structure with a <code>"Data"</code> field at the root of the returned JSON object.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;AccountGroupKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountSubType&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;AccountType&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;Active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;CanUseCashPositionsAsMarginCollateral&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;CfdBorrowingCostsActive&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ClientKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;CreationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-01T13:55:34.000000Z&quot;</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;Currency&quot;</span><span class="p">:</span> <span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;CurrencyDecimals&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;DirectMarketAccess&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;DisplayName&quot;</span><span class="p">:</span> <span class="s2">&quot;My default account&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;IndividualMargining&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsCurrencyConversionAtSettlementTime&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsMarginTradingAllowed&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;IsShareable&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsTrialAccount&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+        <span class="err">...</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;MarginCalculationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Sharing&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;NoSharing&quot;</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;SupportsAccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;UseCashPositionsAsMarginCollateral&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="key-take-aways">Key Take-Aways<a class="headerlink" href="#key-take-aways" title="Permanent link">&para;</a></h2>
+<p>Retrieving configuration information regarding the logged-in user, it's associated client, and the accounts it has access to is an essential part of the initialization process of any application that interacts with the OpenAPI. Typically, directly after the user logs in (i.e. an access token is obtained), the app is expected to call these endpoints to get a sense of the 'lay of the land' for this particular user. Querying the above endpoints provides answers to fundamental client-side questions that influence the way an application should behave, such as:</p>
+<ul>
+<li>Is the logged-in user allowed to trade on the client's accounts?</li>
+<li>What instruments does the client have access to?</li>
+<li>Is this user configured correctly to retrieve market data through the OpenAPI?</li>
+<li>What currency should be displayed by default in the UI?</li>
+</ul>
+<p>In addition, the configuration retrieved through these endpoints has a <em>direct effect</em> on the behavior of other endpoints across the OpenAPI. You might for instance try to place an order for an instrument that this particular client is not allowed to trade, or you might try to retrieve market data while the user is not configured appropriately, which results in errors.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you receive errors from endpoints in the OpenAPI that point at permissioning issues such as <code>HTTP 403 Forbidden</code> status codes or error messages along the lines of <code>"No Access"</code>, it is probably a good idea to double-check the configuration of the user through the above endpoints.</p>
+</div>
+              </span>
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../client-user-account/" title="The Client-User-Account Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                The Client-User-Account Model
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../fundamental-programming-concepts/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Gid van der Ven
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/SaxoBank" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/saxobank" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/saxo-bank/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.home.saxo" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.d151b584.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+    
+    <script>
+      links = document.getElementsByTagName('a')
+      for(let i = 0; i < links.length; i++) {
+        if(links[i].getAttribute('href').startsWith('http')) {
+          links[i].target = '_blank'
+        }
+      }
+    </script>
+  
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.locales.min.js"></script>
+          <script>
+            const nodes = document.querySelectorAll('.timeago');
+            const locale = nodes[0].getAttribute('locale');
+            timeago.render(nodes, locale);
+          </script>
+        </body>
+</html>
