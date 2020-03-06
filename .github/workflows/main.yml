@@ -31,7 +31,5 @@ jobs:
         python -m pip install --upgrade pip
 
     # Runs mkdocs gh-deploy
-    - name: Deploy MkDocs
-      uses: mhausenblas/mkdocs-deploy-gh-pages@1.11
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy mkdocs
+      run: mkdocs gh-deploy
