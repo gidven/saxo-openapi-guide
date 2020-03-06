@@ -19,6 +19,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - run: |
+        git fetch --prune --unshallow
     
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
@@ -32,4 +34,4 @@ jobs:
 
     # Runs mkdocs gh-deploy
     - name: Deploy mkdocs
-      run: mkdocs gh-deploy --force
+      run: mkdocs gh-deploy
