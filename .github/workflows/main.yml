@@ -32,4 +32,4 @@ jobs:
 
     # Runs mkdocs gh-deploy
     - name: Deploy mkdocs
-      run: mkdocs gh-deploy
+      run: mkdocs gh-deploy --force
