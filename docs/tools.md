@@ -19,7 +19,7 @@ To optimize your development efforts while working with Saxo's OpenAPI, the belo
 
 This is the go-to resource if you are starting out on the OpenAPI. [Create a developer account](https://www.developer.saxo/accounts/sim/signup) on the portal to fully leverage the features it provides (see below). This account lives in Saxo's Simulation (or 'Demo') environment and is pre-configured to be used as OpenAPI user. You can log into [SaxoTraderGO](https://www.saxotrader.com/sim/login/) or [SaxoTraderPRO](https://www.home.saxo/platforms/saxotraderpro) with this account to see what a 'standard' Saxo configuration looks like. It is generally recommended to check these platforms out if you haven't seen them already - they are built entirely on top of the OpenAPI infrastructure (observing network traffic from these apps can tell you a lot about appropriate OpenAPI usage).
 
-![The Saxo Bank Developer Portal](img/devportal1.png){: style="height:350px;width:auto"}
+![The Saxo Bank Developer Portal](img/devportal1.png){: style="max-width:75%";}
 
 ### [The Tutorial](https://www.developer.saxo/openapi/tutorial)
 
@@ -28,13 +28,13 @@ This is the go-to resource if you are starting out on the OpenAPI. [Create a dev
 
 The Tutorial is a simple 3-minute click-through guide on the Developer Portal that showcases a couple of basic API request/response examples. It provides an excellent introduction into core aspects of the OpenAPI and is generally recommended as a good 'get to know the API'-tool.
 
-![The Saxo Bank OpenAPI Tutorial](img/devportal2.png){: style="height:350px;width:auto"}
+![The Saxo Bank OpenAPI Tutorial](img/devportal2.png){: style="max-width:75%";}
 
 ### [The OpenAPI Explorer](https://www.developer.saxo/openapi/explorer)
 
 Now that you have acquired a basic understanding of the OpenAPI, let's build some requests ourselves! The Explorer is very similar to tools such as Postman (see below) and lets you create your own requests directly on the portal. It is convenient for on-the-fly debugging and trying out certain endpoints to 'get a feel' for how they behave before implementing them into your own application. It supports all available API endpoints and includes streaming: you can set up a webSocket connection and watch updates flow in real-time.
 
-![The Saxo Bank OpenAPI Explorer](img/devportal3.png){: style="height:350px;width:auto"}
+![The Saxo Bank OpenAPI Explorer](img/devportal3.png){: style="max-width:75%";}
 
 ### [24-Hour Tokens](https://www.developer.saxo/openapi/token)
 
@@ -44,7 +44,7 @@ At this point, you probably want to start calling the OpenAPI from within your o
 
 You can register an application in Saxo's SIM environment on the above link and obtain your own `AppKey` and `AppSecret`, which can be used to request access and refresh tokens through [Saxo's standard OAuth implementation]. This is considered the final step in your journey towards a 'real-life' app.
 
-![Saxo Bank OpenAPI Application Management](img/devportal4.png){: style="height:350px;width:auto"}
+![Saxo Bank OpenAPI Application Management](img/devportal4.png){: style="max-width:75%";}
 
 ## Third-Party Tools
 
