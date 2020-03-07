@@ -19,7 +19,7 @@ Every article is pre-faced by an **Abstract** providing a succinct summary of th
 
 ## Usage of Links
 
-This guide provides links to many online resources to offer as much context as possible. All links annotated by the "🡕" symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
+This guide provides links to many online resources to offer as much context as possible. All links annotated by the [](http://home.saxo) symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
 
 Example of an **external** link: [go to Saxo's Developer Portal](https://developer.saxo)
 
