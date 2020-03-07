@@ -1,5 +1,7 @@
 article_title: Using the OpenAPI Guide
 
+The aim of this guide is to be as readable as possible, while it at the same time provides in-depth discussions of each topic and comprehensive code samples. To keep things clean, side-topics are relegated to separate blocks in each article, and concise sample code is woven into each discussion using multi-language code blocks and line highlighting.
+
 ## Structure
 
 The individual sections in this guide are organized as much as possible in **chronological order**, taking you from the initial steps all the way to s fully-fledged OpenAPI integration. Although some of the articles might not directly apply to your use-case, it is recommended to start 'at the top' and click/skim through each of the provided articles using the `Next` navigation button in the bottom right of each page.
@@ -15,7 +17,13 @@ Every article is pre-faced by an **Abstract** providing a succinct summary of th
 !!! warning "Take care when you see these blocks!"
     Warning blocks like this one inform the reader that the topic under discussion might result in an adverse outcome if the reader applies the presented code or concepts incorrectly.
 
-In addition, this guide provides links to many online resources to offer as much context as possible. All links annotated by the "🡕" symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
+## Usage of Links
+
+This guide provides links to many online resources to offer as much context as possible. All links annotated by the "🡕" symbol link *away* from these pages and will take you to a different domain. All other links that are not annotated refer to pages on this website.
+
+Example of an **external** link: [go to Saxo's Developer Portal](https://developer.saxo)
+
+Example of an **internal** links: [visit the home page of this  site](index.md)
 
 ## Sample Code
 
