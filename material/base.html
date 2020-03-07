@@ -174,9 +174,11 @@
                 {% endif %}
                 {% if page.edit_url %}
                 &nbsp;&nbsp;&nbsp;
+                ~{{ (((page.content|length)/10/250)+1)|int }} minutes to read
+                <br>
                 <a href="{{ page.edit_url }}" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{git_authors|length}}&nbsp;author{% if git_authors|length > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_authors|length }}&nbsp;author{% if git_authors|length > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
                 <a href="{{ page.edit_url | replace('blob', 'blame')}}" title="Show blame">{{ git_authors | sum(attribute='lines') }}&nbsp;lines&nbsp;committed&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 {% endif %}
