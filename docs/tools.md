@@ -13,8 +13,6 @@ article_title: Useful Tools
   
 To optimize your development efforts while working with Saxo's OpenAPI, the below tools are recommended for any developer. These tools range from 'get to know the platform'-apps to fully-fledged debugging environments. You are invited to use these tools as you progress through the articles on this website, as they provide an excellent way to try the features of the OpenAPI yourself while you learn about them.
 
-Please delete this
-
 ## Tools Provided by Saxo
 
 ### [The Developer Portal](https://developer.saxo)
