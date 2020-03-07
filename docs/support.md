@@ -7,11 +7,11 @@ As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece 
 
 ## Step 1: Basic Diagnosis
 
-Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, requests are often received from developers that are digging into tracebacks originating from a flaw in their *own* application. If you believe the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:
+Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, requests are often received from developers that are digging into tracebacks originating from a flaw in their application, rather than an issue with the OpenAPI. If you think the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:
 
 1. **Analyze the traceback** (or logs) provided by your development environment. Does it indicate that all processes are working fine within the app and the issue is in fact caused when a request is sent to (or received from) the OpenAPI?
-2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to the [basic OpenAPI HTTP request requirements]?
-3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error?
+2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to basic OpenAPI HTTP request requirements?
+3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error/behavior?
 
 ## Step 2: Use the Search & Check the FAQ
 
@@ -24,17 +24,17 @@ If all of the above did not help you find an answer, the support team would be g
 Here's how to **request support like a pro**:
 
 1. Include **a clear description** of the issue/bug/problem/obstacle that you are facing along the lines of:
-> "I am trying to achieve [ *business requirement* ] so I sent a request to the OpenAPI such as this [ *request example* ] and I expected to receive [ *desired outcome* ] but instead I got [ *unexpected behavior* ]."
+> "I am trying to achieve _*business requirement*_ so I sent a request to the OpenAPI such as this _*request example*_ and I expected to receive _*desired outcome*_ but instead I got _*unexpected behavior*_."
 2. Add the **details of the request** that results in the error. If you followed [Step 1](#step-1-basic-diagnosis), you will have this at hand already. Make sure to include:
     - The URL (including parameters), request method, and (if applicable) the request body
     - Any headers or cookies that are sent with the request
     - The timestamp of the request
     - The `UserId` or `ClientId` associated with the request
-    *(if you are using a top-level client, make sure to include both the top-level and target client ID)*
+    *(if you are using a top-level client, make sure to include both the top-level ID and the target client ID)*
 3. And finally, add the **details of the response**:
     - The response code and body
     - The timestamp of the response
-    - **Most importantly**: the `X-Correlation` header included in the response (see below)
+    - **Most importantly**: the `X-Correlation` header
 
 !!! tip
     The `X-Correlation` header is an internal Saxo identifier which we can track throughout our systems. Make sure to send us this value!
