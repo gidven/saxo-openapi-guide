@@ -26,7 +26,3 @@ details.abstract summary {
 details.abstract summary::before {
     color: #8c8c8c !important;
 }
-
-.codehilite .hll {
-    display: inline;
-}
