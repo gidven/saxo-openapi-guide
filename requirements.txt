@@ -10,6 +10,7 @@ Markdown==3.1.1
 markdown-include==0.5.1
 MarkupSafe==1.1.1
 mkdocs==1.0.4
+mkdocs-git-authors-plugin==0.2.0
 mkdocs-git-revision-date-localized-plugin==0.4.6
 mkdocs-material==4.6.0
 mkdocs-minify-plugin==0.2.1
