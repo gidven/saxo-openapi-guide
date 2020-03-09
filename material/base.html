@@ -8,6 +8,7 @@
 <!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
     {% block site_meta %}
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -164,15 +165,15 @@
             <div class="md-source-date">
               <small>
                 {% if page.edit_url %}
-                Last update: <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_info['last_updated_long'] }} UTC</a>
+                Last update: <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits" class="timeago" datetime="{{ git_info['last_updated_long'] }} UTC">{{ git_info['last_updated_long'] }} UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~{{ (((page.content|length)/10/250)+1)|int }} minutes to read
+                ~{{ (((page.content|length)/10/250)+1)|int }}&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="{{ page.edit_url }}" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_info['number_authors'] }}&nbsp;author{% if git_info['number_authors'] > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                <a href="{{ page.edit_url | replace('blob', 'blame')}}" title="Show blame">{{ git_info['number_authors'] }}&nbsp;author{% if git_info['number_authors'] > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ page.edit_url | replace('blob', 'blame')}}" title="Show blame">{{ git_info['number_commits'] }}&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits">{{ git_info['number_commits'] }}&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 {% endif %}
               </small>
               
@@ -224,6 +225,9 @@
           links[i].target = '_blank'
         }
       }
+    </script>
+    <script>
+      timeago.render(document.querySelectorAll('.timeago'));
     </script>
   </body>
 </html>
