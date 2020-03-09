@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="..">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.0">
     
     
       
@@ -898,14 +898,11 @@
             <article class="md-content__inner md-typeset">
               
               <h1 class="article-title">Using the OpenAPI Guide</h1>
-              
             
             <div class="md-source-date">
               <small>
                 
-                  Last update: <span class='timeago' datetime='1583608351000' locale='en'></span>
-                
-                
+                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/usage.md" title="Show commits from authors">2020-03-07 19:12:31 UTC</a>
                 &nbsp;&nbsp;&nbsp;
                 ~3 minutes to read
                 <br>
@@ -913,12 +910,11 @@
                 &nbsp;&nbsp;&nbsp;
                 <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/usage.md" title="Show commits from authors">1&nbsp;author&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/usage.md" title="Show blame">70&nbsp;lines&nbsp;committed&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/usage.md" title="Show blame">9&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 
               </small>
               
             </div>
-          
           
           <span class="article-text-content">
                 <p>The aim of this guide is to be as readable as possible, while it at the same time provides in-depth discussions of each topic and comprehensive code samples. To keep things clean, side-topics are relegated to separate blocks in each article, and concise sample code is woven into each discussion using multi-language code blocks and line highlighting.</p>
@@ -947,36 +943,33 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nf">GET</span> <span class="nn">/sim/openapi/root/v1/diagnostics/get</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="hll"><span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
-</span><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
-<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
-<span class="na">Connection</span><span class="o">:</span> <span class="l">Keep-Alive</span>
-</pre></div></div>
+<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/root/v1/diagnostics/get HTTP/1.1
+Host: gateway.saxobank.com
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive</code></pre></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">Python</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="superfences-content"><pre class="codehilite"><code class="language-Python">import requests
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;/sim/openapi/root/v1/diagnostics/get&#39;</span>
-    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-<span class="hll">        <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;gateway.saxobank.com&#39;</span>
-</span>        <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span>
-        <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span>
-        <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;Keep-Alive&#39;</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-</pre></div></div>
+r = request.request(
+    url='/sim/openapi/root/v1/diagnostics/get'
+    headers={
+        'Host': 'gateway.saxobank.com'
+        'Accept': '*/*'
+        'Accept-Encoding': 'gzip, deflate'
+        'Connection': 'Keep-Alive'
+    }
+)</code></pre></div>
 </div>
 <p>This request results in the following HTTP 200 OK response, indicating that the diagnostics check passed successfully:</p>
-<div class="codehilite"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Date</span><span class="o">:</span> <span class="l">Wed, 05 Feb 2020 17:51:52 GMT</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
-<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
-<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
-<span class="na">Expires</span><span class="o">:</span> <span class="l">-1</span>
-<span class="na">X-Correlation</span><span class="o">:</span> <span class="l">##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</span>
-</pre></div>
+<pre class="codehilite"><code class="language-HTTP">HTTP/1.1 200 OK
+Date: Wed, 05 Feb 2020 17:51:52 GMT
+Content-Length: 0
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</code></pre>
               </span>
               
             </article>
@@ -1058,7 +1051,7 @@
     
       <script src="../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
         <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
@@ -1073,13 +1066,5 @@
         }
       }
     </script>
-  
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.locales.min.js"></script>
-          <script>
-            const nodes = document.querySelectorAll('.timeago');
-            const locale = nodes[0].getAttribute('locale');
-            timeago.render(nodes, locale);
-          </script>
-        </body>
+  </body>
 </html>

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="..">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.0">
     
     
       
@@ -912,14 +912,11 @@
             <article class="md-content__inner md-typeset">
               
               <h1 class="article-title">Requesting Support the Right Way</h1>
-              
             
             <div class="md-source-date">
               <small>
                 
-                  Last update: <span class='timeago' datetime='1583606017000' locale='en'></span>
-                
-                
+                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits from authors">2020-03-07 18:33:37 UTC</a>
                 &nbsp;&nbsp;&nbsp;
                 ~3 minutes to read
                 <br>
@@ -927,12 +924,11 @@
                 &nbsp;&nbsp;&nbsp;
                 <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits from authors">1&nbsp;author&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/support.md" title="Show blame">58&nbsp;lines&nbsp;committed&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/support.md" title="Show blame">18&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 
               </small>
               
             </div>
-          
           
           <span class="article-text-content">
                 <details class="abstract"><summary>Abstract</summary><p>In order for Saxo's support team to provide quality development support, we need your help to perform debugging and provide us with as much information as you can.</p>
@@ -977,14 +973,13 @@
 <h2 id="about-the-x-correlation-header">About the <code>X-Correlation</code> Header<a class="headerlink" href="#about-the-x-correlation-header" title="Permanent link">&para;</a></h2>
 <p>Imagine you are about to send a support request and you can only include <strong>1 piece of information</strong>, what should it be? Answer: the <code>X-Correlation</code> header. The OpenAPI sends out correlation headers with <em>every response</em>, which encode important contextual details regarding your requests and allows for <strong>direct log queries</strong>. It goes without saying that this is by far the most useful info our team could receive from you!</p>
 <p>If you've tried the request demonstrated in <a href="../usage/#sample-code">the code block on one of the earlier pages</a>, you may have noticed that the <code>X-Correlation</code> header was indeed included in the response headers from the OpenAPI, as shown in the below HTTP response:</p>
-<div class="codehilite"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Date</span><span class="o">:</span> <span class="l">Wed, 05 Feb 2020 17:51:52 GMT</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
-<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
-<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
-<span class="na">Expires</span><span class="o">:</span> <span class="l">-1</span>
-<span class="hll"><span class="na">X-Correlation</span><span class="o">:</span> <span class="l">##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</span>
-</span></pre></div>
+<pre class="codehilite"><code class="language-HTTP">HTTP/1.1 200 OK
+Date: Wed, 05 Feb 2020 17:51:52 GMT
+Content-Length: 0
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</code></pre>
               </span>
               
             </article>
@@ -1066,7 +1061,7 @@
     
       <script src="../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
         <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
@@ -1081,13 +1076,5 @@
         }
       }
     </script>
-  
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.locales.min.js"></script>
-          <script>
-            const nodes = document.querySelectorAll('.timeago');
-            const locale = nodes[0].getAttribute('locale');
-            timeago.render(nodes, locale);
-          </script>
-        </body>
+  </body>
 </html>
