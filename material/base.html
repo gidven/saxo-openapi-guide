@@ -160,32 +160,23 @@
             <article class="md-content__inner md-typeset">
               {% block content %}
               <h1 class="article-title">{{ page.meta.article_title }}</h1>
-              {% if page and page.meta and (
-                page.meta.git_revision_date_localized or
-                page.meta.revision_date
-          ) %}
             {% set label = lang.t("source.revision.date") %}
             <div class="md-source-date">
               <small>
-                {% if page.meta.git_revision_date_localized %}
-                  {{ label }}: {{ page.meta.git_revision_date_localized }}
-                {% elif page.meta.revision_date %}
-                  {{ label }}: {{ page.meta.revision_date }}
-                {% endif %}
                 {% if page.edit_url %}
+                Last update: <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_info['last_updated_long'] }} UTC</a>
                 &nbsp;&nbsp;&nbsp;
                 ~{{ (((page.content|length)/10/250)+1)|int }} minutes to read
                 <br>
                 <a href="{{ page.edit_url }}" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_authors|length }}&nbsp;author{% if git_authors|length > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits from authors">{{ git_info['number_authors'] }}&nbsp;author{% if git_info['number_authors'] > 1 %}s{% endif %}&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ page.edit_url | replace('blob', 'blame')}}" title="Show blame">{{ git_authors | sum(attribute='lines') }}&nbsp;lines&nbsp;committed&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="{{ page.edit_url | replace('blob', 'blame')}}" title="Show blame">{{ git_info['number_commits'] }}&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 {% endif %}
               </small>
               
             </div>
-          {% endif %}
           
           <span class="article-text-content">
                 {{ page.content }}
