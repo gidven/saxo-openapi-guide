@@ -161,10 +161,9 @@
             <article class="md-content__inner md-typeset">
               {% block content %}
               <h1 class="article-title">{{ page.meta.article_title }}</h1>
-            {% set label = lang.t("source.revision.date") %}
             <div class="md-source-date">
               <small>
-                {% if page.edit_url %}
+                {% if page.edit_url and git_info %}
                 Last update: <a href="{{ page.edit_url | replace('blob', 'commits')}}" title="Show commits" class="timeago" datetime="{{ git_info['last_updated_long'] }} UTC">{{ git_info['last_updated_long'] }} UTC</a>
                 &nbsp;&nbsp;&nbsp;
                 ~{{ (((page.content|length)/10/250)+1)|int }}&nbsp;minutes&nbsp;to&nbsp;read
