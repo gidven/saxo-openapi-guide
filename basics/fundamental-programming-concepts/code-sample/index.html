@@ -92,6 +92,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#rendering-sample-files-directly-in-the-article-page" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -520,9 +524,43 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Code Sample
+      </label>
+    
     <a href="./" title="Code Sample" class="md-nav__link md-nav__link--active">
       Code Sample
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-sample-files-directly-in-the-article-page" class="md-nav__link">
+    Rendering sample files directly in the article page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-sample-from-file" class="md-nav__link">
+    Code sample from file:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -820,6 +858,42 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-sample-files-directly-in-the-article-page" class="md-nav__link">
+    Rendering sample files directly in the article page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-sample-from-file" class="md-nav__link">
+    Code sample from file:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -828,22 +902,305 @@
             <div class="md-source-date">
               <small>
                 
-                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Show commits" class="timeago" datetime="2020-03-11 14:17:03 UTC">2020-03-11 14:17:03 UTC</a>
+                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Show commits" class="timeago" datetime="2020-03-11 14:26:56 UTC">2020-03-11 14:26:56 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~9&nbsp;minutes&nbsp;to&nbsp;read
+                ~14&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
                 <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Show blame">1&nbsp;author&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Show commits">3&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/code-sample.md" title="Show commits">4&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 
               </small>
               
             </div>
           
           <span class="article-text-content">
-                <p>This code sample is directly pulled in from the <code>src</code> folder in this repo's root directory. It is NOT included in the markdown but instead directly rendered from the source file, meaning that any updates and changes are taken straight 'from the source'.</p>
+                <h2 id="rendering-sample-files-directly-in-the-article-page">Rendering sample files directly in the article page<a class="headerlink" href="#rendering-sample-files-directly-in-the-article-page" title="Permanent link">&para;</a></h2>
+<p><strong>This is HTML directly imported from the code sample living elsewhere in the repository:</strong></p>
+<p>﻿Token (from <a href="https://developer.saxobank.com/openapi/token" target="_blank">developer.saxobank.com/openapi/token</a>):<br />
+<input type="text" id="idBearerToken" value="" placeholder="Paste token here" style="width: 100%" /><br />
+Context ID:<br />
+<textarea id="idContextId" rows="8" wrap="off" style="width: 100%"></textarea><br />
+<input type="button" value="Create websocket connection" id="idBtnCreateConnection" />
+<input type="button" value="Start listener" id="idBtnStartListener" />
+<input type="button" value="Subscribe to updates" id="idBtnSubscribe" />
+<input type="button" value="Become primary" id="idBtnBecomePrimary" /> Launch <a href="https://www.saxotrader.com/sim" target="_blank">SaxoTraderGO</a> as primary - For extending subscriptions and disconnecting, see order update events example.
+<br />
+<div id="idResponse"></div><br />
+<pre id="idJavaScript"></pre></p>
+<script type="text/javascript" src="boilerplate.js" defer></script>
+
+<script type="text/javascript" src="demo.js" defer></script>
+
+<script>﻿/*jslint this: true, browser: true, for: true, long: true */
+/*global console */
+
+var accountKey = "";
+
+/**
+ * Shared function to display an unsuccessful response.
+ * @param {Object} errorObject The complete error object.
+ * @return {void}
+ */
+function processError(errorObject) {
+    var textToDisplay = "Error with status " + errorObject.status + " " + errorObject.statusText;
+    console.error(textToDisplay + " " + errorObject.url);
+    // Some errors have a JSON-response, containing explanation of what went wrong.
+    errorObject.json().then(function (errorObjectJson) {
+        if (errorObjectJson.hasOwnProperty("ErrorInfo")) {
+            // Order error object is wrapped in ErrorInfo
+            errorObjectJson = errorObjectJson.ErrorInfo;
+        }
+        // Order preview error object not..
+        if (errorObjectJson.hasOwnProperty("ErrorCode")) {
+            textToDisplay += " - " + errorObjectJson.ErrorCode + " (" + errorObjectJson.Message + ")";
+        }
+        document.getElementById("idResponse").innerText = textToDisplay;
+    }).catch(function (ignore) {
+        // Typically 401 (Unauthorized) has an empty response, this generates a SyntaxError.
+        document.getElementById("idResponse").innerText = textToDisplay;
+    });
+}
+
+/**
+ * Show a function and run it.
+ * @param {Function} functionToRun The function in scope.
+ * @return {void}
+ */
+function run(functionToRun) {
+    // Display source used for demonstration:
+    document.getElementById("idJavaScript").innerText = functionToRun.toString();
+    if (document.getElementById("idBearerToken").value === "") {
+        document.getElementById("idResponse").innerText = "Bearer token is required to do requests.";
+    } else {
+        if (accountKey === "") {
+            // Retrieve the account key first
+            fetch(
+                "https://gateway.saxobank.com/sim/openapi/port/v1/accounts/me",
+                {
+                    "headers": {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+                    },
+                    "method": "GET"
+                }
+            ).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (responseJson) {
+                        accountKey = responseJson.Data[0].AccountKey;  // Just get the first account
+                        console.log("Using accountKey: " + accountKey);
+                        functionToRun();
+                    });
+                } else {
+                    processError(response);
+                }
+            }).catch(function (error) {
+                processError(error);
+            });
+        } else {
+            functionToRun();
+        }
+    }
+}
+
+(function () {
+
+    /**
+     * Read a cookie.
+     * @param {string} key Name of the cookie.
+     * @return {string} Value.
+     */
+    function getCookie(key) {
+        var name = key + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(";");
+        var i;
+        var c;
+        for (i = 0; i < cookieArray.length; i += 1) {
+            c = cookieArray[i];
+            while (c.charAt(0) === " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Insert a cookie. In order to delete it, make value empty.
+     * @param {string} key Name of the cookie.
+     * @param {string} value Value to store.
+     * @return {void}
+     */
+    function setCookie(key, value) {
+        var expires = new Date();
+        // Cookie is valid for 360 days.
+        expires.setTime(expires.getTime() + 360 * 24 * 60 * 60 * 1000);
+        document.cookie = key + "=" + value + ";expires=" + expires.toUTCString();
+    }
+
+    // Show most recent used token:
+    var previouslyUsedToken = getCookie("saxotoken");
+    if (previouslyUsedToken !== "") {
+        document.getElementById("idBearerToken").value = previouslyUsedToken;
+    }
+    window.addEventListener("beforeunload", function () {
+        var token = document.getElementById("idBearerToken").value;
+        if (token.length > 10) {
+            // Save the token so it can be reused:
+            setCookie("saxotoken", token);
+        }
+    });
+}());</script>
+
+<script>﻿/*jslint this: true, browser: true, for: true, long: true */
+/*global window console WebSocket accountKey run processError */
+
+var connection;
+
+/**
+ * This is an example of getting the trading settings of an instrument.
+ * @return {void}
+ */
+function createConnection() {
+    var accessToken = document.getElementById("idBearerToken").value;
+    var contextId = encodeURIComponent(document.getElementById("idContextId").value);
+    var streamerUrl = "wss://gateway.saxobank.com/sim/openapi/streamingws/connect?authorization=" + encodeURIComponent("BEARER " + accessToken) + "&contextId=" + contextId;
+
+    connection = new WebSocket(streamerUrl);
+    document.getElementById("idResponse").innerText = "Connection created. ReadyState: " + connection.readyState;
+    // Documentation on readyState: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/readyState
+    // 0 = CONNECTING, 1 = OPEN
+}
+
+/**
+ * This is an example of getting the trading settings of an instrument.
+ * @return {void}
+ */
+function startListener() {
+
+    function parseStreamingMessage(data) {
+        try {
+            var message = new DataView(data);
+            var bytes = new Uint8Array(data);
+            var messageId = message.getInt8();
+            var refBeginIndex = 10;
+            var refIdLength = message.getInt8(refBeginIndex);
+            var refId = String.fromCharCode.apply(String, bytes.slice(refBeginIndex + 1, refBeginIndex + 1 + refIdLength));
+            var payloadBeginIndex = refBeginIndex + 1 + refIdLength;
+            var payloadLength = message.getUint32(payloadBeginIndex + 1, true);
+            var segmentEnd = payloadBeginIndex + 5 + payloadLength;
+            var payload = String.fromCharCode.apply(String, bytes.slice(payloadBeginIndex + 5, segmentEnd));
+            var block = JSON.parse(payload);
+            console.log("Message " + messageId + " parsed with referenceId " + refId + " and payload: " + payload);
+            block.ReferenceId = refId;
+            block.MessageID = messageId;
+            switch (refId) {
+            case "MyTradeLevelChangeEvent":
+                document.getElementById("idResponse").innerText = "Streaming message received: " + payload;
+                break;
+            case "_heartbeat":
+                break;
+            default:
+                console.log("No processing implemented for message with reference " + refId);
+            }
+            return {
+                "segmentEnd": segmentEnd,
+                "messages": block
+            };
+        } catch (error) {
+            console.error("Parse message failed: " + error);
+        }
+    }
+
+    connection.onmessage = function (event) {
+        // Documentation on message format: https://www.developer.saxo/openapi/learn/plain-websocket-streaming#PlainWebSocketStreaming-Receivingmessages
+        var reader = new FileReader();
+        console.log("Streaming message received");
+        reader.readAsArrayBuffer(event.data);
+        reader.onloadend = function () {
+            var beginAt = 0;
+            var data = reader.result;
+            var parsedMessage;
+            do {
+                parsedMessage = parseStreamingMessage(data);
+                beginAt = parsedMessage.segmentEnd;
+                data = data.slice(beginAt);
+            } while (data.byteLength > 0);
+        };
+    };
+    document.getElementById("idResponse").innerText = "Connection subscribed to events. ReadyState: " + connection.readyState;
+}
+
+/**
+ * This is an example of getting the trading settings of an instrument.
+ * @return {void}
+ */
+function subscribe() {
+    var data = {
+        "ContextId": encodeURIComponent(document.getElementById("idContextId").value),
+        "ReferenceId": "MyTradeLevelChangeEvent"
+    };
+
+    fetch("https://gateway.saxobank.com/sim/openapi/root/v1/sessions/events/subscriptions", {
+        "method": "POST",
+        "headers": {
+            "Authorization": "Bearer " + document.getElementById("idBearerToken").value,
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(data)
+    });
+    document.getElementById("idResponse").innerText = "Subscription created. ReadyState: " + connection.readyState;
+}
+
+/**
+ * This is an example of making the current app primary, so real time prices can be shown. Other apps are notified and get delayed prices.
+ * @return {void}
+ */
+function becomePrimary() {
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/root/v1/sessions/capabilities",
+        {
+            "headers": {
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value,
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            "body": JSON.stringify({
+                "TradeLevel": "FullTradingAndChat"
+            }),
+            "method": "PUT"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            document.getElementById("idResponse").innerText = "Requested to become primary";
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+document.getElementById("idContextId").value = "MyApp_" + Date.now();
+document.getElementById("idBtnCreateConnection").addEventListener("click", function () {
+    run(createConnection);
+});
+document.getElementById("idBtnStartListener").addEventListener("click", function () {
+    run(startListener);
+});
+document.getElementById("idBtnSubscribe").addEventListener("click", function () {
+    run(subscribe);
+});
+document.getElementById("idBtnBecomePrimary").addEventListener("click", function () {
+    run(becomePrimary);
+});</script>
+
+<h2 id="code-sample-from-file">Code sample from file:<a class="headerlink" href="#code-sample-from-file" title="Permanent link">&para;</a></h2>
+<p>This code sample is directly pulled in from the <code>src</code> folder in this repo's root directory. It is NOT included in the markdown but instead directly rendered from the source file, meaning that any updates and changes are taken straight 'from the source'.</p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">JS</label>
