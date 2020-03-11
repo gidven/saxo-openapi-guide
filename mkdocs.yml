@@ -77,6 +77,8 @@ markdown_extensions:
   - codehilite:
       guess_lang: False
   - meta
+  - markdown_include.include:
+      base_path: .
 
 
 plugins:
