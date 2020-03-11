@@ -42,6 +42,7 @@ nav:
     - Fundamental Programming Concepts:
       - Overview: basics/fundamental-programming-concepts/index.md
       - WebSocket Streaming: basics/fundamental-programming-concepts/websocket-streaming.md
+      - Code Sample: basics/fundamental-programming-concepts/code-sample.md
     - Frequently Asked Questions:
       - FAQ Guide: basics/faq/index.md
       - How do I authenticate?: basics/faq/authentication.md
