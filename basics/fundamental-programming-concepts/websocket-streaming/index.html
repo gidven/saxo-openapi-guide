@@ -1004,7 +1004,7 @@
                 
                 Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/websocket-streaming.md" title="Show commits" class="timeago" datetime="2020-03-06 12:28:24 UTC">2020-03-06 12:28:24 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~10&nbsp;minutes&nbsp;to&nbsp;read
+                ~14&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/fundamental-programming-concepts/websocket-streaming.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
@@ -1063,27 +1063,30 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">With Auth Header</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/streamingws/connect?ContextId=[ID] HTTP/1.1
-Host: streaming.saxobank.com
-Authorization: Bearer [token]
-Connection: Upgrade
-Upgrade: WebSocket
-Sec-WebSocket-Key: [auto-generated key]
-Sec-WebSocket-Version: 13</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/streamingws/connect?ContextId=[ID]</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">streaming.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">Upgrade</span>
+<span class="na">Upgrade</span><span class="o">:</span> <span class="l">WebSocket</span>
+<span class="na">Sec-WebSocket-Key</span><span class="o">:</span> <span class="l">[auto-generated key]</span>
+<span class="na">Sec-WebSocket-Version</span><span class="o">:</span> <span class="l">13</span>
+</code></pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">With Auth Parameter</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/streamingws/connect?ContextId=[ID]&amp;Authorization=Bearer%20[token] HTTP/1.1
-Host: streaming.saxobank.com
-Connection: Upgrade
-Upgrade: WebSocket
-Sec-WebSocket-Key: [auto-generated key]
-Sec-WebSocket-Version: 13</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/streamingws/connect?ContextId=[ID]&amp;Authorization=Bearer%20[token]</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">streaming.saxobank.com</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">Upgrade</span>
+<span class="na">Upgrade</span><span class="o">:</span> <span class="l">WebSocket</span>
+<span class="na">Sec-WebSocket-Key</span><span class="o">:</span> <span class="l">[auto-generated key]</span>
+<span class="na">Sec-WebSocket-Version</span><span class="o">:</span> <span class="l">13</span>
+</code></pre></div></div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>In many client-side libraries, the URL that is required to initiate a WebSocket connection is usually composed as: <code>wss://host/path</code>, replacing the <code>http</code> protocol prefix (which is only used on initiation - the connection is upgraded afterwards).</p>
 <p>In JavaScript for example, initiating a WebSocket connection requires the following code:</p>
-<pre class="codehilite"><code class="language-JavaScript">let connection = new WebSocket("wss://example.com/streaming?parameter=123")</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s2">&quot;wss://example.com/streaming?parameter=123&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 </div>
 <div class="admonition note">
@@ -1093,67 +1096,70 @@ Sec-WebSocket-Version: 13</code></pre></div>
 </li>
 <li>
 <p><strong>Receive Confirmation.</strong> The streaming server responds with <code>HTTP 101 Switching Protocols</code> to confirm that the connection has been established. This response includes a <code>Connection: Upgrade</code> and a <code>Upgrade: websocket</code> header, as well as a hash of the key provided by the client in the <code>Sec-WebSocket-Accept</code> header, which prevents caching proxies from interfering with the opening handshake.</p>
-<pre class="codehilite"><code class="language-HTTP">HTTP/1.1 101 Switching Protocols
-Upgrade: websocket
-Connection: Upgrade
-Cache-Control: private
-Sec-WebSocket-Accept: [hashed key]
-...</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">101</span> <span class="ne">Switching Protocols</span>
+<span class="na">Upgrade</span><span class="o">:</span> <span class="l">websocket</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">Upgrade</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">private</span>
+<span class="na">Sec-WebSocket-Accept</span><span class="o">:</span> <span class="l">[hashed key]</span>
+<span class="err">...</span>
+</code></pre></div>
 
 </li>
 <li>
 <p><strong>Create Subscription.</strong> At this point, a connection is established but no subscriptions have been created (the 'channel' is empty). In order to initiate a subscription, the client application sends a POST request to a <code>.../subscriptions</code> endpoint in the OpenAPI.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> For example, a price subscription for the EURUSD FX cross (UIC 21) can be created by sending the following POST request to the <code>trade/v1/infoprices/subscriptions/</code> endpoint:</p>
-<pre class="codehilite"><code class="language-HTTP">POST /sim/openapi/trade/v1/infoprices/subscriptions/ HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]
-Content-Type: application/json
-Accept: */*
-Cache-Control: no-cache
-Accept-Encoding: gzip, deflate
-Content-Length: 127
-{
-  "Arguments": {
-    "Uics": "21",
-    "AssetType": "FxSpot"
-  },
-  "ContextId": "MyContextID",
-  "ReferenceId": "SubscriptionReference"
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/sim/openapi/trade/v1/infoprices/subscriptions/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="hll"><span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</span><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">127</span>
+<span class="err">{</span>
+  <span class="s2">&quot;Arguments&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Uics&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;AssetType&quot;</span><span class="p">:</span> <span class="s2">&quot;FxSpot&quot;</span>
+  <span class="p">}</span><span class="err">,</span>
+<span class="hll">  <span class="s2">&quot;ContextId&quot;</span><span class="err">:</span> <span class="s2">&quot;MyContextID&quot;</span><span class="err">,</span>
+</span><span class="hll">  <span class="s2">&quot;ReferenceId&quot;</span><span class="err">:</span> <span class="s2">&quot;SubscriptionReference&quot;</span>
+</span><span class="err">}</span>
+</code></pre></div>
 
 <p>Notice that this subscription request must contain a valid access token, and identifies the WebSocket connection using the <code>ContextId</code> field, which must match the ID set on the initial connection request (see step 1 above). This individual subscription is identified by its <code>ReferenceId</code>, which is set by the client application and can be used to adjust or cancel the subscription (without disconnecting the WebSocket). Note that each individual subscription must be created with a unique <code>ReferenceId</code> within the context of the WebSocket connection.</p>
 </li>
 <li>
 <p><strong>Receive Snapshot Data.</strong> The OpenAPI responds with <code>HTTP 201 Created</code> to signal that the client subscribed successfully. In the response to the subscription request, the OpenAPI sends out a snapshot of the current state of the data requested by the client application. This is the starting point of the subscription and it includes <em>all</em> available fields. The EURUSD price subscription for instance contains Bid/Ask prices and further details around the quote, such as <code>Amount</code>, which automatically defaults to 100K if it is not specified in the subscription request:</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "ContextId": "MyContextID",
-  "Format": "application/json",
-  "InactivityTimeout": 30,
-  "ReferenceId": "SubscriptionReference",
-  "RefreshRate": 1000,
-  "Snapshot": {
-    "Data": [
-      {
-        "AssetType": "FxSpot",
-        "LastUpdated": "2020-02-11T09:38:20.553000Z",
-        "PriceSource": "SBFX",
-        "Quote": {
-          "Amount": 100000,
-          "Ask": 1.09143,
-          "Bid": 1.09141,
-          "DelayedByMinutes": 0,
-          "ErrorCode": "None",
-          "Mid": 1.09142,
-          "PriceSource": "SBFX",
-          "PriceSourceType": "Firm",
-          "PriceTypeAsk": "Tradable",
-          "PriceTypeBid": "Tradable"
-      },
-      "Uic": 21
-      }
-    ]
-  },
-  "State": "Active"
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;ContextId&quot;</span><span class="p">:</span> <span class="s2">&quot;MyContextID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Format&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;InactivityTimeout&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nt">&quot;ReferenceId&quot;</span><span class="p">:</span> <span class="s2">&quot;SubscriptionReference&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;RefreshRate&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nt">&quot;Snapshot&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;AssetType&quot;</span><span class="p">:</span> <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;LastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-11T09:38:20.553000Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;PriceSource&quot;</span><span class="p">:</span> <span class="s2">&quot;SBFX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Quote&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;Amount&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+          <span class="nt">&quot;Ask&quot;</span><span class="p">:</span> <span class="mf">1.09143</span><span class="p">,</span>
+          <span class="nt">&quot;Bid&quot;</span><span class="p">:</span> <span class="mf">1.09141</span><span class="p">,</span>
+          <span class="nt">&quot;DelayedByMinutes&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;ErrorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Mid&quot;</span><span class="p">:</span> <span class="mf">1.09142</span><span class="p">,</span>
+          <span class="nt">&quot;PriceSource&quot;</span><span class="p">:</span> <span class="s2">&quot;SBFX&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceSourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;Firm&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceTypeAsk&quot;</span><span class="p">:</span> <span class="s2">&quot;Tradable&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceTypeBid&quot;</span><span class="p">:</span> <span class="s2">&quot;Tradable&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;Uic&quot;</span><span class="p">:</span> <span class="mi">21</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;State&quot;</span><span class="p">:</span> <span class="s2">&quot;Active&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 </li>
 <li>
@@ -1161,56 +1167,59 @@ Content-Length: 127
 </li>
 <li>
 <p><strong>Receive Updates.</strong> The client now receives data messages through the WebSocket connection. These messages are sent as a stream over a series of binary WebSocket frames. Each WebSocket frame can contain multiple data messages, and data messages can be split over several WebSocket frames, in which case a continuation frame follows. The <code>FIN</code> bit on each frame indicates whether the contained data completes a data message (see specification <a href="https://tools.ietf.org/html/rfc6455#section-5.2">here</a>). Frame B in the below diagram only contains part of data message 3, which should be completed using the first half of frame C. Most client libraries handle these cases automatically without requiring additional configuration.</p>
-<pre class="codehilite"><code>                    +---------------+-------------+-------------+
+<div class="codehilite"><pre><span></span><code>                    +---------------+-------------+-------------+
 WebSocket frame:    |   A     FIN=1 |   B   FIN=0 |   C   FIN=1 |
                     +-------+-------+-------------+-----+-------+
 Data message:       |   1   |   2   |         3         |   4   |
-                    +-------+-------+-------------------+-------+</code></pre>
+                    +-------+-------+-------------------+-------+
+</code></pre></div>
 
 <p>The binary data contained in each data message needs to be decoded by the client application (see the byte layout below). The binary data includes the <code>RefrenceId</code> of the subscription that it the message belongs to. The payload of the data messages is always encoded in JSON format, which contains <em>only</em> fields that have changed since the previous message/initial snapshot (so-called <strong>'delta updates'</strong>).<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> For instance, the first update message for the EURUSD price subscription created above could look like this:</p>
-<pre class="codehilite"><code class="language-JSON">[
-  {
-    "LastUpdated": "2020-02-11T09:38:30.972000Z",
-    "Quote": {
-      "Ask": 1.09148,
-      "Bid": 1.09147,
-      "Mid": 1.091475
-    },
-    "Uic": 21
-  }
-]</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;LastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-11T09:38:30.972000Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Quote&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Ask&quot;</span><span class="p">:</span> <span class="mf">1.09148</span><span class="p">,</span>
+      <span class="nt">&quot;Bid&quot;</span><span class="p">:</span> <span class="mf">1.09147</span><span class="p">,</span>
+      <span class="nt">&quot;Mid&quot;</span><span class="p">:</span> <span class="mf">1.091475</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Uic&quot;</span><span class="p">:</span> <span class="mi">21</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <p>Notice that the <em>only</em> static element in this message is the <code>Uic</code> field, which is required to determine which object should be updated on the client side. The updated fields are merged with the snapshot received in step 4 to create a new 'current state' of the EURUSD quote (see below). This operation is performed for every message received by the client.</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "ContextId": "MyConnectionID",
-  "Format": "application/json",
-  "InactivityTimeout": 30,
-  "ReferenceId": "SubscriptionReference",
-  "RefreshRate": 1000,
-  "Snapshot": {
-    "Data": [
-      {
-        "AssetType": "FxSpot",
-        "LastUpdated": "2020-02-11T09:38:30.972000Z",
-        "PriceSource": "SBFX",
-        "Quote": {
-          "Amount": 100000,
-          "Ask": 1.09148,
-          "Bid": 1.09147,
-          "DelayedByMinutes": 0,
-          "ErrorCode": "None",
-          "Mid": 1.091475,
-          "PriceSource": "SBFX",
-          "PriceSourceType": "Firm",
-          "PriceTypeAsk": "Tradable",
-          "PriceTypeBid": "Tradable"
-      },
-      "Uic": 21
-      }
-    ]
-  },
-  "State": "Active"
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;ContextId&quot;</span><span class="p">:</span> <span class="s2">&quot;MyConnectionID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Format&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;InactivityTimeout&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nt">&quot;ReferenceId&quot;</span><span class="p">:</span> <span class="s2">&quot;SubscriptionReference&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;RefreshRate&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nt">&quot;Snapshot&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;AssetType&quot;</span><span class="p">:</span> <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+<span class="hll">        <span class="nt">&quot;LastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-11T09:38:30.972000Z&quot;</span><span class="p">,</span>
+</span>        <span class="nt">&quot;PriceSource&quot;</span><span class="p">:</span> <span class="s2">&quot;SBFX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Quote&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;Amount&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+<span class="hll">          <span class="nt">&quot;Ask&quot;</span><span class="p">:</span> <span class="mf">1.09148</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;Bid&quot;</span><span class="p">:</span> <span class="mf">1.09147</span><span class="p">,</span>
+</span>          <span class="nt">&quot;DelayedByMinutes&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;ErrorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+<span class="hll">          <span class="nt">&quot;Mid&quot;</span><span class="p">:</span> <span class="mf">1.091475</span><span class="p">,</span>
+</span>          <span class="nt">&quot;PriceSource&quot;</span><span class="p">:</span> <span class="s2">&quot;SBFX&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceSourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;Firm&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceTypeAsk&quot;</span><span class="p">:</span> <span class="s2">&quot;Tradable&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;PriceTypeBid&quot;</span><span class="p">:</span> <span class="s2">&quot;Tradable&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;Uic&quot;</span><span class="p">:</span> <span class="mi">21</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;State&quot;</span><span class="p">:</span> <span class="s2">&quot;Active&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 </li>
 </ol>
@@ -1221,9 +1230,10 @@ Data message:       |   1   |   2   |         3         |   4   |
 </ul>
 <h2 id="removing-a-subscription">Removing a Subscription<a class="headerlink" href="#removing-a-subscription" title="Permanent link">&para;</a></h2>
 <p>When a subscription becomes obsolete, for instance when the user has 'moved on' to a different section in the app's UI that does not require certain data to continue flowing, the app should perform cleanup. This prevents unnecessary overhead on the client and server side, and ensures that the session stays within throttling limits (see below). Subscriptions are created and deleted on the same path (in our example, <code>trade/v1/infoprices/subscriptions/</code>). For deletion, the <code>ContextID</code> and <code>SubscriptionReference</code> are added as path parameters:</p>
-<pre class="codehilite"><code class="language-HTTP">DELETE /sim/openapi/trade/v1/infoprices/subscriptions/{ContextID}/{SubscriptionReference} HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nf">DELETE</span> <span class="nn">/sim/openapi/trade/v1/infoprices/subscriptions/{ContextID}/{SubscriptionReference}</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</code></pre></div>
 
 <p>The OpenAPI confirms deletion by returning <code>HTTP 202 Accepted</code>.</p>
 <h2 id="decoding-data-messages">Decoding Data Messages<a class="headerlink" href="#decoding-data-messages" title="Permanent link">&para;</a></h2>
@@ -1285,24 +1295,26 @@ Authorization: Bearer [token]</code></pre>
 <h2 id="disconnecting-and-reconnecting">Disconnecting and Reconnecting<a class="headerlink" href="#disconnecting-and-reconnecting" title="Permanent link">&para;</a></h2>
 <p>The client can disconnect from the streaming server by sending a close frame. The server will respond with a close frame of its own, as per the <a href="https://tools.ietf.org/html/rfc6455#section-5.5.1">WebSocket protocol</a>. Closing a WebSocket connection automatically deletes any associated subscriptions.</p>
 <p>In case an unforeseen event causes the connection to be dropped on the transport level, the client app can reconnect to the streaming server and provide the ID of the last-seen message as a parameter. This allows for an automatic fallback to be implemented on the client side where the disruption towards the end user is as limited as possible. The streaming server caches a limited number of recent messages for this purpose. The below request provides an example of a reconnection request with the <code>MessageId</code> parameter set to 10:</p>
-<pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/streamingws/connect?ContextId=[ID]&amp;MessageId=10 HTTP/1.1
-Connection: Upgrade
-Upgrade: WebSocket
-Sec-WebSocket-Key: [auto-generated key]
-Sec-WebSocket-Version: 13
-Authorization: Bearer [token]
-Host: streaming.saxobank.com</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="hll"><span class="nf">GET</span> <span class="nn">/sim/openapi/streamingws/connect?ContextId=[ID]&amp;MessageId=10</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span class="na">Connection</span><span class="o">:</span> <span class="l">Upgrade</span>
+<span class="na">Upgrade</span><span class="o">:</span> <span class="l">WebSocket</span>
+<span class="na">Sec-WebSocket-Key</span><span class="o">:</span> <span class="l">[auto-generated key]</span>
+<span class="na">Sec-WebSocket-Version</span><span class="o">:</span> <span class="l">13</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">streaming.saxobank.com</span>
+</code></pre></div>
 
 <p>Once the connection is established, the streaming server will pick up from message 11 onwards and immediately send all missed intermediate messages so the client can 'catch up'. </p>
 <h2 id="resetting-subscriptions">Resetting Subscriptions<a class="headerlink" href="#resetting-subscriptions" title="Permanent link">&para;</a></h2>
 <p>In the event the streaming server detects failures such as message loss, it will send a <code>_resetsubscriptions</code> control message. This message can include a list labeled <code>TargetReferenceIds</code>, but it can also be empty signaling that <em>all</em> subscriptions need to be reset. In order to reset an existing subscription, first send a <code>DELETE</code> request before re-sending the <code>POST</code> request to prevent throttling from interfering with the reset process (see below). An example of the <code>_resetsubscriptions</code> control message:</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "ReferenceId": "_resetsubscriptions",
-  "Timestamp": "2020-02-11T15:14:22.776000Z",
-  "TargetReferenceIds": [
-    "SubscriptionReference"
-  ]
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;ReferenceId&quot;</span><span class="p">:</span> <span class="s2">&quot;_resetsubscriptions&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-11T15:14:22.776000Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;TargetReferenceIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;SubscriptionReference&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h2 id="throttling">Throttling<a class="headerlink" href="#throttling" title="Permanent link">&para;</a></h2>
 <h2 id="re-authorizing">Re-Authorizing<a class="headerlink" href="#re-authorizing" title="Permanent link">&para;</a></h2>

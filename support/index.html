@@ -973,13 +973,14 @@
 <h2 id="about-the-x-correlation-header">About the <code>X-Correlation</code> Header<a class="headerlink" href="#about-the-x-correlation-header" title="Permanent link">&para;</a></h2>
 <p>Imagine you are about to send a support request and you can only include <strong>1 piece of information</strong>, what should it be? Answer: the <code>X-Correlation</code> header. The OpenAPI sends out correlation headers with <em>every response</em>, which encode important contextual details regarding your requests and allows for <strong>direct log queries</strong>. It goes without saying that this is by far the most useful info our team could receive from you!</p>
 <p>If you've tried the request demonstrated in <a href="../usage/#sample-code">the code block on one of the earlier pages</a>, you may have noticed that the <code>X-Correlation</code> header was indeed included in the response headers from the OpenAPI, as shown in the below HTTP response:</p>
-<pre class="codehilite"><code class="language-HTTP">HTTP/1.1 200 OK
-Date: Wed, 05 Feb 2020 17:51:52 GMT
-Content-Length: 0
-Cache-Control: no-cache
-Pragma: no-cache
-Expires: -1
-X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Date</span><span class="o">:</span> <span class="l">Wed, 05 Feb 2020 17:51:52 GMT</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Expires</span><span class="o">:</span> <span class="l">-1</span>
+<span class="hll"><span class="na">X-Correlation</span><span class="o">:</span> <span class="l">##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</span>
+</span></code></pre></div>
               </span>
               
             </article>

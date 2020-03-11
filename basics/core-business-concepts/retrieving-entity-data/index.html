@@ -974,7 +974,7 @@
                 
                 Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/core-business-concepts/retrieving-entity-data.md" title="Show commits" class="timeago" datetime="2020-03-06 12:28:24 UTC">2020-03-06 12:28:24 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~6&nbsp;minutes&nbsp;to&nbsp;read
+                ~10&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/core-business-concepts/retrieving-entity-data.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
@@ -1013,34 +1013,36 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">HTTP</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/root/v1/user HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]
-Accept: */*
-Cache-Control: no-cache
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/root/v1/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="hll"><span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</span><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</code></pre></div></div>
 </div>
 <p>The response from the OpenAPI contains the below JSON object. Notice that the role assigned to this standard demo user (the developer account in the simulation system) is <code>"Default"</code>, which enables the <code>"OAPI.OP.View"</code> operation required to use the portfolio endpoints discussed below and pull out additional client details. Furthermore, this user has access right flag <code>"CanTrade"</code> set to <code>true</code>, which means it is authorized to place orders on the accounts owned by this client.</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "AccessRights": {
-    ...
-    "CanTakePriceSession": true,
-    "CanTrade": true,
-    ...
-  },
-  "ClientId": 9073876,
-  "Operations": [
-    ...
-    "OAPI.OP.ViewOwnedClients",
-    "OAPI.OP.View",
-    ...
-  ],
-  "Roles": [
-    "OAPI.Roles.Default"
-  ],
-  "UserId": 9073876
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;AccessRights&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="err">...</span>
+    <span class="nt">&quot;CanTakePriceSession&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;CanTrade&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span>    <span class="err">...</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="mi">9073876</span><span class="p">,</span>
+  <span class="nt">&quot;Operations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">...</span>
+    <span class="s2">&quot;OAPI.OP.ViewOwnedClients&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="s2">&quot;OAPI.OP.View&quot;</span><span class="p">,</span>
+</span>    <span class="err">...</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;Roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="hll">    <span class="s2">&quot;OAPI.Roles.Default&quot;</span>
+</span>  <span class="p">],</span>
+  <span class="nt">&quot;UserId&quot;</span><span class="p">:</span> <span class="mi">9073876</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h2 id="retrieving-details-on-each-entity">Retrieving Details on Each Entity<a class="headerlink" href="#retrieving-details-on-each-entity" title="Permanent link">&para;</a></h2>
 <p>The procedure to obtain detailed information on the configuration of clients, users, and accounts follows a similarly-structured endpoints design. All of the below functionality is provided by the Portfolio service group, which not only contains configuration data for static entities, but also provides functionality to retrieve dynamic client data such as positions, orders, exposures, and account balances (which will be discussed in a later article).</p>
@@ -1097,119 +1099,125 @@ Connection: keep-alive</code></pre></div>
 <div class="superfences-tabs">
 <input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
 <label for="__tab_2_0">HTTP</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/port/v1/user/me HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/user/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</code></pre></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above request (and all following requests) are abbreviated for demonstration purposes.</p>
 </div>
 <p>The response from the OpenAPI contains the below JSON object. Notice that this entity contains some important configuration such as localization settings, asset types that this user is allowed to trade, and whether the client is enabled to retrieve market data through the OpenAPI (details will be discussed in a later article).</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "ClientKey": "X1JlUyeXTMK3mBxzd-D2UA==",
-  "Culture": "en-US",
-  "Language": "en",
-  "LastLoginStatus": "Successful",
-  "LastLoginTime": "2020-02-06T13:12:45.560000Z",
-  "LegalAssetTypes": [
-    "FxSpot",
-    "Stock",
-    "CfdOnIndex",
-    ...
-  ],
-  "MarketDataViaOpenApiTermsAccepted": true,
-  "Name": "User Name",
-  "TimeZoneId": 26,
-  "UserId": "9073876",
-  "UserKey": "X1JlUyeXTMK3mBxzd-D2UA=="
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;ClientKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Culture&quot;</span><span class="p">:</span> <span class="s2">&quot;en-US&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;Language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;LastLoginStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Successful&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;LastLoginTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-06T13:12:45.560000Z&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span>    <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+    <span class="err">...</span>
+  <span class="p">],</span>
+<span class="hll">  <span class="nt">&quot;MarketDataViaOpenApiTermsAccepted&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span>  <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;User Name&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;TimeZoneId&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+  <span class="nt">&quot;UserId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;UserKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="client-details">Client Details<a class="headerlink" href="#client-details" title="Permanent link">&para;</a></h3>
 <p>In a similar vein, let's get more info on the client that this user belongs to through the below request.</p>
 <div class="superfences-tabs">
 <input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
 <label for="__tab_3_0">HTTP</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/port/v1/clients/me HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/clients/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</code></pre></div></div>
 </div>
 <p>The below details are returned by the OpenAPI. Notice that accessible assets are controlled on the client level too, and the response includes further configuration such as position netting settings, the default currency, and the account protection limit (which is enforced on the client level as aggregate of the entire client's holdings). These concepts will be discussed in-depth in later articles.</p>
-<pre class="codehilite"><code class="language-JSON">{
-  "AccountValueProtectionLimit": 500000,
-  "ClientId": "9073876",
-  ...
-  "DefaultCurrency": "EUR",
-  "ForceOpenDefaultValue": false,
-  "IsMarginTradingAllowed": true,
-  "IsVariationMarginEligible": false,
-  "LegalAssetTypes": [
-    "FxSpot",
-    "Stock",
-    "CfdOnIndex",
-    ...
-  ],
-  "LegalAssetTypesAreIndicative": false,
-  "MarginCalculationMethod": "Default",
-  "MarginMonitoringMode": "Margin",
-  "MutualFundsCashAmountOrderCurrency": "Instrument",
-  "Name": "User Name",
-  "PositionNettingMode": "EndOfDay",
-  "SupportsAccountValueProtectionLimit": true
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="hll">  <span class="nt">&quot;AccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">,</span>
+</span>  <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+  <span class="err">...</span>
+<span class="hll">  <span class="nt">&quot;DefaultCurrency&quot;</span><span class="p">:</span> <span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;ForceOpenDefaultValue&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;IsMarginTradingAllowed&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;IsVariationMarginEligible&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+    <span class="err">...</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;LegalAssetTypesAreIndicative&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;MarginCalculationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;MarginMonitoringMode&quot;</span><span class="p">:</span> <span class="s2">&quot;Margin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;MutualFundsCashAmountOrderCurrency&quot;</span><span class="p">:</span> <span class="s2">&quot;Instrument&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;User Name&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;PositionNettingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;EndOfDay&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;SupportsAccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="account-details">Account Details<a class="headerlink" href="#account-details" title="Permanent link">&para;</a></h3>
 <p>And finally, let's check which accounts belong to this client. Notice the trailing slash at the end of the URI - in true REST fashion, this resource is a collection of account objects and therefore ends in a trailing slash (as opposed to the above examples which only return a single user or client object).</p>
 <div class="superfences-tabs">
 <input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
 <label for="__tab_4_0">HTTP</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/port/v1/accounts/me/ HTTP/1.1
-Host: gateway.saxobank.com
-Authorization: Bearer [token]</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/port/v1/accounts/me/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer [token]</span>
+</code></pre></div></div>
 </div>
 <p>The API response contains a lot of settings and configurations that will be discussed in later articles. To highlight a few: accounts can be restricted to certain assets (like the users and clients), and some important configuration is included such as the account currency, display name, and type.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Endpoints that return collections of objects generally follow the same structure with a <code>"Data"</code> field at the root of the returned JSON object.</p>
 </div>
-<pre class="codehilite"><code class="language-JSON">{
-  "Data": [
-    {
-      "AccountGroupKey": "X1JlUyeXTMK3mBxzd-D2UA==",
-      "AccountId": "9073876",
-      "AccountKey": "X1JlUyeXTMK3mBxzd-D2UA==",
-      "AccountSubType": "None",
-      "AccountType": "Normal",
-      "Active": true,
-      "CanUseCashPositionsAsMarginCollateral": true,
-      "CfdBorrowingCostsActive": false,
-      "ClientId": "9073876",
-      "ClientKey": "X1JlUyeXTMK3mBxzd-D2UA==",
-      "CreationDate": "2018-11-01T13:55:34.000000Z",
-      "Currency": "EUR",
-      "CurrencyDecimals": 2,
-      "DirectMarketAccess": false,
-      "DisplayName": "My default account",
-      "IndividualMargining": false,
-      "IsCurrencyConversionAtSettlementTime": false,
-      "IsMarginTradingAllowed": true,
-      "IsShareable": false,
-      "IsTrialAccount": true,
-      "LegalAssetTypes": [
-        "FxSpot",
-        "Stock",
-        "CfdOnIndex",
-        ...
-      ],
-      "MarginCalculationMethod": "Default",
-      "Sharing": [
-        "NoSharing"
-      ],
-      "SupportsAccountValueProtectionLimit": false,
-      "UseCashPositionsAsMarginCollateral": true
-    }
-  ]
-}</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;AccountGroupKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;AccountSubType&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;AccountType&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;Active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;CanUseCashPositionsAsMarginCollateral&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;CfdBorrowingCostsActive&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;ClientId&quot;</span><span class="p">:</span> <span class="s2">&quot;9073876&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ClientKey&quot;</span><span class="p">:</span> <span class="s2">&quot;X1JlUyeXTMK3mBxzd-D2UA==&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;CreationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-01T13:55:34.000000Z&quot;</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;Currency&quot;</span><span class="p">:</span> <span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;CurrencyDecimals&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;DirectMarketAccess&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="hll">      <span class="nt">&quot;DisplayName&quot;</span><span class="p">:</span> <span class="s2">&quot;My default account&quot;</span><span class="p">,</span>
+</span>      <span class="nt">&quot;IndividualMargining&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsCurrencyConversionAtSettlementTime&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsMarginTradingAllowed&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;IsShareable&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;IsTrialAccount&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;LegalAssetTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;FxSpot&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Stock&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CfdOnIndex&quot;</span><span class="p">,</span>
+        <span class="err">...</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;MarginCalculationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Sharing&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;NoSharing&quot;</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;SupportsAccountValueProtectionLimit&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;UseCashPositionsAsMarginCollateral&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h2 id="key-take-aways">Key Take-Aways<a class="headerlink" href="#key-take-aways" title="Permanent link">&para;</a></h2>
 <p>Retrieving configuration information regarding the logged-in user, it's associated client, and the accounts it has access to is an essential part of the initialization process of any application that interacts with the OpenAPI. Typically, directly after the user logs in (i.e. an access token is obtained), the app is expected to call these endpoints to get a sense of the 'lay of the land' for this particular user. Querying the above endpoints provides answers to fundamental client-side questions that influence the way an application should behave, such as:</p>

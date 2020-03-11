@@ -943,33 +943,36 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">HTTP</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-HTTP">GET /sim/openapi/root/v1/diagnostics/get HTTP/1.1
-Host: gateway.saxobank.com
-Accept: */*
-Accept-Encoding: gzip, deflate
-Connection: Keep-Alive</code></pre></div>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sim/openapi/root/v1/diagnostics/get</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="hll"><span class="na">Host</span><span class="o">:</span> <span class="l">gateway.saxobank.com</span>
+</span><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">Keep-Alive</span>
+</code></pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">Python</label>
-<div class="superfences-content"><pre class="codehilite"><code class="language-Python">import requests
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
-r = request.request(
-    url='/sim/openapi/root/v1/diagnostics/get'
-    headers={
-        'Host': 'gateway.saxobank.com'
-        'Accept': '*/*'
-        'Accept-Encoding': 'gzip, deflate'
-        'Connection': 'Keep-Alive'
-    }
-)</code></pre></div>
+<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;/sim/openapi/root/v1/diagnostics/get&#39;</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+<span class="hll">        <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;gateway.saxobank.com&#39;</span>
+</span>        <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span>
+        <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span>
+        <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;Keep-Alive&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></div>
 </div>
 <p>This request results in the following HTTP 200 OK response, indicating that the diagnostics check passed successfully:</p>
-<pre class="codehilite"><code class="language-HTTP">HTTP/1.1 200 OK
-Date: Wed, 05 Feb 2020 17:51:52 GMT
-Content-Length: 0
-Cache-Control: no-cache
-Pragma: no-cache
-Expires: -1
-X-Correlation: ##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Date</span><span class="o">:</span> <span class="l">Wed, 05 Feb 2020 17:51:52 GMT</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
+<span class="na">Expires</span><span class="o">:</span> <span class="l">-1</span>
+<span class="na">X-Correlation</span><span class="o">:</span> <span class="l">##6a6f4979-f2b9-4d54-9712-9cf505e3bdc9#82</span>
+</code></pre></div>
               </span>
               
             </article>

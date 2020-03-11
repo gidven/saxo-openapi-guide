@@ -26,3 +26,7 @@ details.abstract summary {
 details.abstract summary::before {
     color: #8c8c8c !important;
 }
+
+.md-typeset .codehilite pre {
+    padding: 0px;
+}
