@@ -954,7 +954,7 @@
                 
                 Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits" class="timeago" datetime="2020-03-12 10:50:07 UTC">2020-03-12 10:50:07 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~7&nbsp;minutes&nbsp;to&nbsp;read
+                ~8&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
@@ -1058,6 +1058,7 @@ function processError(errorObject) {
 function run(functionToRun) {
     // Display source used for demonstration:
     document.getElementById("idJavaScript").innerText = functionToRun.toString();
+    document.getElementById("idResponse").innerText = "Started function " + functionToRun.name;
     if (document.getElementById("idBearerToken").value === "") {
         document.getElementById("idResponse").innerText = "Bearer token is required to do requests.";
     } else {
@@ -1148,6 +1149,76 @@ function run(functionToRun) {
 
 var orderSequenceNumber = 1;
 var lastOrderId = 0;
+
+function selectAssetType() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AssetType = document.getElementById("idCbxAssetType").value;
+    // Search on Amsterdam Exchange for an instrument
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/ref/v1/instruments?AssetTypes=" + newOrderObject.AssetType,
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "method": "GET"
+        }
+    ).then(function (responseSearch) {
+        if (responseSearch.ok) {
+            responseSearch.json().then(function (responseSearchJson) {
+                switch (responseSearchJson.Data[0].AssetType) {
+                case "Stock":
+                    newOrderObject.Uic = responseSearchJson.Data[0].PrimaryListing;
+                    delete newOrderObject.ToOpenClose;
+                    document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+                    break;
+                case "StockOption":
+                    // We found an "OptionRoot"
+                    fetch(
+                        "https://gateway.saxobank.com/sim/openapi/ref/v1/instruments/contractoptionspaces/" + responseSearchJson.Data[0].Identifier,
+                        {
+                            "headers": {
+                                "Content-Type": "application/json; charset=utf-8",
+                                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+                            },
+                            "method": "GET"
+                        }
+                    ).then(function (responseOptionSeries) {
+                        if (responseOptionSeries.ok) {
+                            responseOptionSeries.json().then(function (responseOptionSeriesJson) {
+                                newOrderObject.Uic = responseOptionSeriesJson.DefaultOption.Uic;
+                                newOrderObject.ToOpenClose = "ToOpen";
+                                document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+                            });                            
+                        } else {
+                            processError(responseOptionSeries);
+                        }
+                    });
+                    break;
+                }
+            });
+        } else {
+            processError(responseSearch);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+function selectOrderType() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.OrderType = document.getElementById("idCbxOrderType").value;
+    switch (newOrderObject.OrderType) {
+    case "Limit":
+        // TODO Retrieve the price of this instrument
+        newOrderObject.OrderPrice = 70;
+        break;
+    case "Market":
+        delete newOrderObject.OrderPrice;
+        break;
+    }
+    document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+}
 
 /**
  * This is an example of getting the trading settings of an instrument.
@@ -1326,6 +1397,12 @@ function cancelLastOrder() {
     });
 }
 
+document.getElementById("idCbxAssetType").addEventListener("change", function () {
+    run(selectAssetType);
+});
+document.getElementById("idCbxOrderType").addEventListener("change", function () {
+    run(selectOrderType);
+});
 document.getElementById("idBtnGetConditions").addEventListener("click", function () {
     run(getConditions);
 });
