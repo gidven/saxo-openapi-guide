@@ -92,6 +92,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#introduction" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -565,9 +569,43 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Stock
+      </label>
+    
     <a href="./" title="Stock" class="md-nav__link md-nav__link--active">
       Stock
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample" class="md-nav__link">
+    Sample:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -870,6 +908,42 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample" class="md-nav__link">
+    Sample:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -878,23 +952,401 @@
             <div class="md-source-date">
               <small>
                 
-                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits" class="timeago" datetime="2020-03-12 10:37:56 UTC">2020-03-12 10:37:56 UTC</a>
+                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits" class="timeago" datetime="2020-03-12 10:50:07 UTC">2020-03-12 10:50:07 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~1&nbsp;minutes&nbsp;to&nbsp;read
+                ~6&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
                 <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show blame">1&nbsp;author&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits">2&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits">3&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 
               </small>
               
             </div>
           
           <span class="article-text-content">
-                <p>This article demonstrates how to place order for <code>Stock</code> instruments.</p>
-<p>The below interactive order placement tool is generated using the sample in the repository located here.</p>
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This article demonstrates how to place order for <code>Stock</code> instruments.</p>
+<p>The below interactive order placement tool is generated using the sample in the repository located here: <a href="https://github.com/gidven/saxo-openapi-guide/tree/master/src/js/order_placement">view standalone code sample on GitHub</a></p>
+<p>Follow these steps to run the sample:</p>
+<ol>
+<li>Grab a 24-hour token from Saxo's developer portal and plug it into the input box. This will allow the JS sample to connect to the OpenAPI.</li>
+<li>Pick your instrument and order type.</li>
+<li>Adjust the parameters of your order by directly changing the JSON object in the window below.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>AccountKey</code> is automatically added to the JSON request by the sample using the <code>/port/v1/accounts/me/</code> endpoint.</p>
+</div>
+<h2 id="sample">Sample:<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h2>
+<p>Token (from <a href="https://developer.saxobank.com/openapi/token" target="_blank">developer.saxobank.com/openapi/token</a>):<br />
+<input type="text" class="saxo" id="idBearerToken" value="" placeholder="Paste token here" style="width: 100%" /><br />
+<br />
+<label>Asset type: <select class="saxo" id="idCbxAssetType">
+  <option value="Stock" selected>Stock</option>
+  <option value="StockOption">StockOption</option>
+</select></label>
+<label>Order type: <select class="saxo" id="idCbxOrderType">
+  <option value="Limit" selected>Limit</option>
+  <option value="Market">Market</option>
+</select></label><br />
+<br />
+Order object:<br />
+<textarea class="saxo" id="idNewOrderObject" rows="8" wrap="off" style="width: 100%">
+{   "AccountKey": "(added on first request)",
+    "OrderType": "Limit",
+    "AssetType": "Stock",
+    "BuySell": "Buy",
+    "Amount": 100,
+    "Uic": 112809,
+    "OrderDuration": { "DurationType": "DayOrder" },
+    "ManualOrder": false,
+    "OrderPrice": 70
+}
+</textarea><br />
+<input type="button" class="saxo" value="Check conditions" id="idBtnGetConditions" />
+<input type="button" class="saxo" value="Precheck order" id="idBtnPreCheckOrder" />
+<input type="button" class="saxo" value="Order costs" id="idBtnGetOrderCosts" />
+<input type="button" class="saxo" value="Download KID" id="idBtnGetKid" />
+<input type="button" class="saxo" value="Place order" id="idBtnPlaceNewOrder" />
+<input type="button" class="saxo" value="Modify order" id="idBtnModifyLastOrder" />
+<input type="button" class="saxo" value="Cancel order" id="idBtnCancelLastOrder" />
+<br />
+<div id="idResponse"></div><br />
+<pre id="idJavaScript"></pre></p>
+<script type="text/javascript" src="boilerplate.js" defer></script>
+
+<script type="text/javascript" src="demo.js" defer></script>
+
+<script>/*jslint this: true, browser: true, for: true, long: true */
+/*global console */
+
+var accountKey = "";
+
+/**
+ * Shared function to display an unsuccessful response.
+ * @param {Object} errorObject The complete error object.
+ * @return {void}
+ */
+function processError(errorObject) {
+    var textToDisplay = "Error with status " + errorObject.status + " " + errorObject.statusText;
+    console.error(textToDisplay + " " + errorObject.url);
+    // Some errors have a JSON-response, containing explanation of what went wrong.
+    errorObject.json().then(function (errorObjectJson) {
+        if (errorObjectJson.hasOwnProperty("ErrorInfo")) {
+            // Order error object is wrapped in ErrorInfo
+            errorObjectJson = errorObjectJson.ErrorInfo;
+        }
+        // Order preview error object not..
+        if (errorObjectJson.hasOwnProperty("ErrorCode")) {
+            textToDisplay += " - " + errorObjectJson.ErrorCode + " (" + errorObjectJson.Message + ")";
+        }
+        document.getElementById("idResponse").innerText = textToDisplay;
+    }).catch(function (ignore) {
+        // Typically 401 (Unauthorized) has an empty response, this generates a SyntaxError.
+        document.getElementById("idResponse").innerText = textToDisplay;
+    });
+}
+
+/**
+ * Show a function and run it.
+ * @param {Function} functionToRun The function in scope.
+ * @return {void}
+ */
+function run(functionToRun) {
+    // Display source used for demonstration:
+    document.getElementById("idJavaScript").innerText = functionToRun.toString();
+    if (document.getElementById("idBearerToken").value === "") {
+        document.getElementById("idResponse").innerText = "Bearer token is required to do requests.";
+    } else {
+        if (accountKey === "") {
+            // Retrieve the account key first
+            fetch(
+                "https://gateway.saxobank.com/sim/openapi/port/v1/accounts/me",
+                {
+                    "headers": {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+                    },
+                    "method": "GET"
+                }
+            ).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (responseJson) {
+                        accountKey = responseJson.Data[0].AccountKey;  // Just get the first account
+                        console.log("Using accountKey: " + accountKey);
+                        functionToRun();
+                    });
+                } else {
+                    processError(response);
+                }
+            }).catch(function (error) {
+                processError(error);
+            });
+        } else {
+            functionToRun();
+        }
+    }
+}
+
+(function () {
+
+    /**
+     * Read a cookie.
+     * @param {string} key Name of the cookie.
+     * @return {string} Value.
+     */
+    function getCookie(key) {
+        var name = key + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(";");
+        var i;
+        var c;
+        for (i = 0; i < cookieArray.length; i += 1) {
+            c = cookieArray[i];
+            while (c.charAt(0) === " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Insert a cookie. In order to delete it, make value empty.
+     * @param {string} key Name of the cookie.
+     * @param {string} value Value to store.
+     * @return {void}
+     */
+    function setCookie(key, value) {
+        var expires = new Date();
+        // Cookie is valid for 360 days.
+        expires.setTime(expires.getTime() + 360 * 24 * 60 * 60 * 1000);
+        document.cookie = key + "=" + value + ";expires=" + expires.toUTCString();
+    }
+
+    // Show most recent used token:
+    var previouslyUsedToken = getCookie("saxotoken");
+    if (previouslyUsedToken !== "") {
+        document.getElementById("idBearerToken").value = previouslyUsedToken;
+    }
+    window.addEventListener("beforeunload", function () {
+        var token = document.getElementById("idBearerToken").value;
+        if (token.length > 10) {
+            // Save the token so it can be reused:
+            setCookie("saxotoken", token);
+        }
+    });
+}());</script>
+
+<script>/*jslint this: true, browser: true, for: true, long: true */
+/*global window console accountKey run processError */
+
+var orderSequenceNumber = 1;
+var lastOrderId = 0;
+
+/**
+ * This is an example of getting the trading settings of an instrument.
+ * @return {void}
+ */
+function getConditions() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AccountKey = accountKey;
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/ref/v1/instruments/details?Uics=" + newOrderObject.Uic + "&AssetTypes=" + newOrderObject.AssetType + "&AccountKey=" + newOrderObject.AccountKey + "&FieldGroups=OrderSetting",
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "method": "GET"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (responseJson) {
+                // Test for SupportedOrderTypes and TickSizeScheme
+                document.getElementById("idResponse").innerText = "Successful request with response: \n" + JSON.stringify(responseJson.Data);
+            });
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+/**
+ * This is an example of getting the costs of this order.
+ * @return {void}
+ */
+function getOrderCosts() {
+    // https://www.developer.saxo/openapi/learn/mifid-2-cost-reporting
+    throw "Order costs are not implemented yet.";
+}
+
+/**
+ * This is an example of getting the Key Information Document of this instrument.
+ * @return {void}
+ */
+function getKid() {
+    throw "KID is not implemented yet.";
+}
+
+/**
+ * This is an example of an order validation.
+ * @return {void}
+ */
+function preCheckNewOrder() {
+    // Bug: Preview doesnt check for limit outside market hours
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AccountKey = accountKey;
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/trade/v2/orders/precheck",
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "body": JSON.stringify(newOrderObject),
+            "method": "POST"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (responseJson) {
+                // Response must have PreCheckResult property being "Ok"
+                document.getElementById("idResponse").innerText = "Successful request with response: \n" + JSON.stringify(responseJson);
+            });
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+/**
+ * This is an example of placing a single leg order.
+ * @return {void}
+ */
+function placeNewOrder() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AccountKey = accountKey;
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/trade/v2/orders",
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                // https://www.developer.saxo/openapi/learn/rate-limiting
+                "X-Request-ID": "Reference_Insert_" + orderSequenceNumber,  // Warning! Prevent error 409 (Conflict) from identical orders within 15 seconds
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "body": JSON.stringify(newOrderObject),
+            "method": "POST"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (responseJson) {
+                // Response must have an OrderId
+                document.getElementById("idResponse").innerText = "Successful request with sequence " + response.headers.get("X-Request-ID") + " and response: \n" + JSON.stringify(responseJson);
+                orderSequenceNumber += 1;
+                lastOrderId = responseJson.OrderId;
+            });
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+/**
+ * This is an example of updating a single leg order.
+ * @return {void}
+ */
+function modifyLastOrder() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AccountKey = accountKey;
+    newOrderObject.OrderId = lastOrderId;
+    newOrderObject.Amout = newOrderObject.Amount * 2;
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/trade/v2/orders",
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "X-Request-ID": "Reference_Update_" + orderSequenceNumber,  // Warning! Prevent error 409 (Conflict) from identical orders within 15 seconds
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "body": JSON.stringify(newOrderObject),
+            "method": "PATCH"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (responseJson) {
+                // Response must have an OrderId
+                document.getElementById("idResponse").innerText = "Successful request with sequence " + response.headers.get("X-Request-ID") + " and response: \n" + JSON.stringify(responseJson);
+                orderSequenceNumber += 1;
+            });
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+/**
+ * This is an example of removing an order from the book.
+ * @return {void}
+ */
+function cancelLastOrder() {
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/trade/v2/orders/" + lastOrderId + "?AccountKey=" + accountKey,
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "method": "DELETE"
+        }
+    ).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (responseJson) {
+                // Response must have an OrderId
+                document.getElementById("idResponse").innerText = "Successful request with response: \n" + JSON.stringify(responseJson);
+            });
+        } else {
+            processError(response);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+document.getElementById("idBtnGetConditions").addEventListener("click", function () {
+    run(getConditions);
+});
+document.getElementById("idBtnPreCheckOrder").addEventListener("click", function () {
+    run(preCheckNewOrder);
+});
+document.getElementById("idBtnGetOrderCosts").addEventListener("click", function () {
+    run(getOrderCosts);
+});
+document.getElementById("idBtnGetKid").addEventListener("click", function () {
+    run(getKid);
+});
+document.getElementById("idBtnPlaceNewOrder").addEventListener("click", function () {
+    run(placeNewOrder);
+});
+document.getElementById("idBtnModifyLastOrder").addEventListener("click", function () {
+    run(modifyLastOrder);
+});
+document.getElementById("idBtnCancelLastOrder").addEventListener("click", function () {
+    run(cancelLastOrder);
+});</script>
               </span>
               
             </article>
