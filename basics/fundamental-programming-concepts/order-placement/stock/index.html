@@ -954,7 +954,7 @@
                 
                 Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Show commits" class="timeago" datetime="2020-03-12 10:50:07 UTC">2020-03-12 10:50:07 UTC</a>
                 &nbsp;&nbsp;&nbsp;
-                ~6&nbsp;minutes&nbsp;to&nbsp;read
+                ~7&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
                 <a href="https://github.com/gidven/saxo-openapi-guide/blob/master/docs/basics/fundamental-programming-concepts/order-placement/stock.md" title="Make a contribution on GitHub!">Edit&nbsp;on&nbsp;GitHub&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
@@ -981,41 +981,41 @@
 <p>The <code>AccountKey</code> is automatically added to the JSON request by the sample using the <code>/port/v1/accounts/me/</code> endpoint.</p>
 </div>
 <h2 id="sample">Sample:<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h2>
-<p>Token (from <a href="https://developer.saxobank.com/openapi/token" target="_blank">developer.saxobank.com/openapi/token</a>):<br />
-<input type="text" class="saxo" id="idBearerToken" value="" placeholder="Paste token here" style="width: 100%" /><br />
+<p>Paste token from <a href="https://developer.saxobank.com/openapi/token" target="_blank">developer.saxobank.com/openapi/token</a> in the box below:<br />
+<input type="text" class="token-field" id="idBearerToken" value="" placeholder="Paste token here..." style="width: 50%" /><br />
 <br />
-<label>Asset type: <select class="saxo" id="idCbxAssetType">
+<label>Asset type: <select class="selector" id="idCbxAssetType">
   <option value="Stock" selected>Stock</option>
   <option value="StockOption">StockOption</option>
 </select></label>
-<label>Order type: <select class="saxo" id="idCbxOrderType">
+<label>Order type: <select class="selector" id="idCbxOrderType">
   <option value="Limit" selected>Limit</option>
   <option value="Market">Market</option>
 </select></label><br />
 <br />
-Order object:<br />
-<textarea class="saxo" id="idNewOrderObject" rows="8" wrap="off" style="width: 100%">
-{   "AccountKey": "(added on first request)",
-    "OrderType": "Limit",
-    "AssetType": "Stock",
-    "BuySell": "Buy",
-    "Amount": 100,
-    "Uic": 112809,
-    "OrderDuration": { "DurationType": "DayOrder" },
-    "ManualOrder": false,
-    "OrderPrice": 70
+POST body containing order parameters:<br />
+<textarea class="json-input" id="idNewOrderObject" rows="8" wrap="off" style="width: 100%">
+{ "AccountKey": "(added on first request)",
+  "OrderType": "Limit",
+  "AssetType": "Stock",
+  "BuySell": "Buy",
+  "Amount": 100,
+  "Uic": 112809,
+  "OrderDuration": { "DurationType": "DayOrder" },
+  "ManualOrder": false,
+  "OrderPrice": 70
 }
 </textarea><br />
-<input type="button" class="saxo" value="Check conditions" id="idBtnGetConditions" />
-<input type="button" class="saxo" value="Precheck order" id="idBtnPreCheckOrder" />
-<input type="button" class="saxo" value="Order costs" id="idBtnGetOrderCosts" />
-<input type="button" class="saxo" value="Download KID" id="idBtnGetKid" />
-<input type="button" class="saxo" value="Place order" id="idBtnPlaceNewOrder" />
-<input type="button" class="saxo" value="Modify order" id="idBtnModifyLastOrder" />
-<input type="button" class="saxo" value="Cancel order" id="idBtnCancelLastOrder" />
+<input type="button" class="action-button" value="Check conditions" id="idBtnGetConditions" />
+<input type="button" class="action-button" value="Precheck order" id="idBtnPreCheckOrder" />
+<input type="button" class="action-button" value="Order costs" id="idBtnGetOrderCosts" />
+<input type="button" class="action-button" value="Download KID" id="idBtnGetKid" />
+<input type="button" class="action-button" value="Place order" id="idBtnPlaceNewOrder" />
+<input type="button" class="action-button" value="Modify order" id="idBtnModifyLastOrder" />
+<input type="button" class="action-button" value="Cancel order" id="idBtnCancelLastOrder" />
 <br />
-<div id="idResponse"></div><br />
-<pre id="idJavaScript"></pre></p>
+Response: <div class="response-block" id="idResponse"></div><br />
+JS code: <pre class="code-block" id="idJavaScript"></pre></p>
 <script type="text/javascript" src="boilerplate.js" defer></script>
 
 <script type="text/javascript" src="demo.js" defer></script>
