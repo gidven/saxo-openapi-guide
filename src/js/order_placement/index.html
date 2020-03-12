@@ -1,0 +1,38 @@
+Token (from <a href="https://developer.saxobank.com/openapi/token" target="_blank">developer.saxobank.com/openapi/token</a>):<br />
+<input type="text" class="saxo" id="idBearerToken" value="" placeholder="Paste token here" style="width: 100%" /><br />
+<br />
+<label>Asset type: <select class="saxo" id="idCbxAssetType">
+  <option value="Stock" selected>Stock</option>
+  <option value="StockOption">StockOption</option>
+</select></label>
+<label>Order type: <select class="saxo" id="idCbxOrderType">
+  <option value="Limit" selected>Limit</option>
+  <option value="Market">Market</option>
+</select></label><br />
+<br />
+Order object:<br />
+<textarea class="saxo" id="idNewOrderObject" rows="8" wrap="off" style="width: 100%">
+{   "AccountKey": "(added on first request)",
+    "OrderType": "Limit",
+    "AssetType": "Stock",
+    "BuySell": "Buy",
+    "Amount": 100,
+    "Uic": 112809,
+    "OrderDuration": { "DurationType": "DayOrder" },
+    "ManualOrder": false,
+    "OrderPrice": 70
+}
+</textarea><br />
+<input type="button" class="saxo" value="Check conditions" id="idBtnGetConditions" />
+<input type="button" class="saxo" value="Precheck order" id="idBtnPreCheckOrder" />
+<input type="button" class="saxo" value="Order costs" id="idBtnGetOrderCosts" />
+<input type="button" class="saxo" value="Download KID" id="idBtnGetKid" />
+<input type="button" class="saxo" value="Place order" id="idBtnPlaceNewOrder" />
+<input type="button" class="saxo" value="Modify order" id="idBtnModifyLastOrder" />
+<input type="button" class="saxo" value="Cancel order" id="idBtnCancelLastOrder" />
+<br />
+<div id="idResponse"></div><br />
+<pre id="idJavaScript"></pre>
+
+<script type="text/javascript" src="boilerplate.js" defer></script>
+<script type="text/javascript" src="demo.js" defer></script>
