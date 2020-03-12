@@ -43,6 +43,9 @@ nav:
       - Overview: basics/fundamental-programming-concepts/index.md
       - WebSocket Streaming: basics/fundamental-programming-concepts/websocket-streaming.md
       - Code Sample: basics/fundamental-programming-concepts/code-sample.md
+      - Order Placement:
+        - Introduction: basics/fundamental-programming-concepts/order-placement/index.md
+        - Stock: basics/fundamental-programming-concepts/order-placement/stock.md
     - Frequently Asked Questions:
       - FAQ Guide: basics/faq/index.md
       - How do I authenticate?: basics/faq/authentication.md
