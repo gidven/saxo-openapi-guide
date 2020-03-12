@@ -4,6 +4,76 @@
 var orderSequenceNumber = 1;
 var lastOrderId = 0;
 
+function selectAssetType() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.AssetType = document.getElementById("idCbxAssetType").value;
+    // Search on Amsterdam Exchange for an instrument
+    fetch(
+        "https://gateway.saxobank.com/sim/openapi/ref/v1/instruments?AssetTypes=" + newOrderObject.AssetType,
+        {
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+            },
+            "method": "GET"
+        }
+    ).then(function (responseSearch) {
+        if (responseSearch.ok) {
+            responseSearch.json().then(function (responseSearchJson) {
+                switch (responseSearchJson.Data[0].AssetType) {
+                case "Stock":
+                    newOrderObject.Uic = responseSearchJson.Data[0].PrimaryListing;
+                    delete newOrderObject.ToOpenClose;
+                    document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+                    break;
+                case "StockOption":
+                    // We found an "OptionRoot"
+                    fetch(
+                        "https://gateway.saxobank.com/sim/openapi/ref/v1/instruments/contractoptionspaces/" + responseSearchJson.Data[0].Identifier,
+                        {
+                            "headers": {
+                                "Content-Type": "application/json; charset=utf-8",
+                                "Authorization": "Bearer " + document.getElementById("idBearerToken").value
+                            },
+                            "method": "GET"
+                        }
+                    ).then(function (responseOptionSeries) {
+                        if (responseOptionSeries.ok) {
+                            responseOptionSeries.json().then(function (responseOptionSeriesJson) {
+                                newOrderObject.Uic = responseOptionSeriesJson.DefaultOption.Uic;
+                                newOrderObject.ToOpenClose = "ToOpen";
+                                document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+                            });                            
+                        } else {
+                            processError(responseOptionSeries);
+                        }
+                    });
+                    break;
+                }
+            });
+        } else {
+            processError(responseSearch);
+        }
+    }).catch(function (error) {
+        processError(error);
+    });
+}
+
+function selectOrderType() {
+    var newOrderObject = JSON.parse(document.getElementById("idNewOrderObject").value);
+    newOrderObject.OrderType = document.getElementById("idCbxOrderType").value;
+    switch (newOrderObject.OrderType) {
+    case "Limit":
+        // TODO Retrieve the price of this instrument
+        newOrderObject.OrderPrice = 70;
+        break;
+    case "Market":
+        delete newOrderObject.OrderPrice;
+        break;
+    }
+    document.getElementById("idNewOrderObject").value = JSON.stringify(newOrderObject);
+}
+
 /**
  * This is an example of getting the trading settings of an instrument.
  * @return {void}
@@ -181,6 +251,12 @@ function cancelLastOrder() {
     });
 }
 
+document.getElementById("idCbxAssetType").addEventListener("change", function () {
+    run(selectAssetType);
+});
+document.getElementById("idCbxOrderType").addEventListener("change", function () {
+    run(selectOrderType);
+});
 document.getElementById("idBtnGetConditions").addEventListener("click", function () {
     run(getConditions);
 });

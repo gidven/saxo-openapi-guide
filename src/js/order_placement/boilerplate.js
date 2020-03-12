@@ -36,6 +36,7 @@ function processError(errorObject) {
 function run(functionToRun) {
     // Display source used for demonstration:
     document.getElementById("idJavaScript").innerText = functionToRun.toString();
+    document.getElementById("idResponse").innerText = "Started function " + functionToRun.name;
     if (document.getElementById("idBearerToken").value === "") {
         document.getElementById("idResponse").innerText = "Bearer token is required to do requests.";
     } else {
