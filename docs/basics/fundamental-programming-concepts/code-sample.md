@@ -2,6 +2,8 @@ article_title: Code Sample
 
 ## Rendering sample files directly in the article page
 
+<a href="https://github.com/gidven/saxo-openapi-guide/tree/master/src/js/primary_monitoring"> GO TO CODE SAMPLE</a>
+
 **This is HTML directly imported from the code sample living elsewhere in the repository:**
 
 {!./src/js/primary_monitoring/index.html!}
