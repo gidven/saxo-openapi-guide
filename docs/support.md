@@ -3,15 +3,15 @@ article_title: Requesting Support the Right Way
 ??? abstract
     In order for Saxo's support team to provide quality development support, we need your help to perform debugging and provide us with as much information as you can.
 
-As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing proper support *relies in large part on the information provided by you*. It is recommended to follow the below steps to analyze the issue you are facing.
+As mentioned on the [welcome page](index.md), Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing efficint support *relies in large part on the information provided by you*. It is recommended to follow the below steps to analyze the issue you are facing.
 
 ## Step 1: Basic Diagnosis
 
-Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, requests are often received from developers that are digging into tracebacks originating from a flaw in their application, rather than an issue with the OpenAPI. If you think the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:
+Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, support queries are often received from developers that are digging into tracebacks originating from a flaw in their own ication, rather than an issue with the OpenAPI. If you think the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:
 
 1. **Analyze the traceback** (or logs) provided by your development environment. Does it indicate that all processes are working fine within the app and the issue is in fact caused when a request is sent to (or received from) the OpenAPI?
-2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to basic OpenAPI HTTP request requirements?
-3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same response/error/behavior?
+2. **Extract the request** at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy such as [Fiddler](https://www.telerik.com/fiddler) to simplify this process. Does the request conform to basic OpenAPI HTTP request requirements?
+3. **Verify** the request using an API debugging tool such as [Postman](https://www.getpostman.com/), or directly from the command line using `curl`. Does this result in the same behavior?
 
 ## Step 2: Use the Search & Check the FAQ
 
@@ -19,12 +19,12 @@ The search tool at the top of this window is a quick and powerful way to **scan 
 
 ## Step 3: Email OpenAPI Support
 
-If all of the above did not help you find an answer, the support team would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com). Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
+If all of the above did not help you find an answer, the support team would be glad to receive a message on [openapisupport@saxobank.com](mailto:openapisupport@saxobank.com). Please bear in mind you can **help us help you** by including *as many details as possible* in your inquiry. The OpenAPI receives millions of HTTP requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".
 
 Here's how to **request support like a pro**:
 
 1. Include **a clear description** of the issue/bug/problem/obstacle that you are facing along the lines of:
-> "I am trying to achieve _*business requirement*_ so I sent a request to the OpenAPI such as this _*request example*_ and I expected to receive _*desired outcome*_ but instead I got _*unexpected behavior*_."
+> "I am trying to achieve <*business requirement*> so I sent a request to the OpenAPI such as this <*request example*> and I expected to receive <*desired outcome*> but instead I got <*unexpected behavior*>."
 2. Add the **details of the request** that results in the error. If you followed [Step 1](#step-1-basic-diagnosis), you will have this at hand already. Make sure to include:
     - The URL (including parameters), request method, and (if applicable) the request body
     - Any headers or cookies that are sent with the request
@@ -37,7 +37,7 @@ Here's how to **request support like a pro**:
     - **Most importantly**: the `X-Correlation` header
 
 !!! tip
-    The `X-Correlation` header is an internal Saxo identifier which we can track throughout our systems. Make sure to send us this value!
+    The `X-Correlation` header is an internal Saxo identifier which we can track throughout our systems. Make sure to send us this header!
 
 ## About the `X-Correlation` Header
 
