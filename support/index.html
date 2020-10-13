@@ -976,7 +976,7 @@
             <div class="md-source-date">
               <small>
                 
-                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits" class="timeago" datetime="2020-03-07 18:33:37 UTC">2020-03-07 18:33:37 UTC</a>
+                Last update: <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits" class="timeago" datetime="2020-10-13 16:31:20 UTC">2020-10-13 16:31:20 UTC</a>
                 &nbsp;&nbsp;&nbsp;
                 ~3&nbsp;minutes&nbsp;to&nbsp;read
                 <br>
@@ -984,7 +984,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <a href="https://github.com/gidven/saxo-openapi-guide/blame/master/docs/support.md" title="Show blame">1&nbsp;author&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits">18&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                <a href="https://github.com/gidven/saxo-openapi-guide/commits/master/docs/support.md" title="Show commits">19&nbsp;commits&nbsp;<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                 
               </small>
               
@@ -993,22 +993,22 @@
           <span class="article-text-content">
                 <details class="abstract"><summary>Abstract</summary><p>In order for Saxo's support team to provide quality development support, we need your help to perform debugging and provide us with as much information as you can.</p>
 </details>
-<p>As mentioned on the <a href="..">welcome page</a>, Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing proper support <em>relies in large part on the information provided by you</em>. It is recommended to follow the below steps to analyze the issue you are facing.</p>
+<p>As mentioned on the <a href="..">welcome page</a>, Saxo's OpenAPI is a complex piece of machinery. The support team is available to provide assistance whenever required, however do bear in mind that providing efficint support <em>relies in large part on the information provided by you</em>. It is recommended to follow the below steps to analyze the issue you are facing.</p>
 <h2 id="step-1-basic-diagnosis">Step 1: Basic Diagnosis<a class="headerlink" href="#step-1-basic-diagnosis" title="Permanent link">&para;</a></h2>
-<p>Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, requests are often received from developers that are digging into tracebacks originating from a flaw in their application, rather than an issue with the OpenAPI. If you think the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:</p>
+<p>Although it is of course possible that the difficulties you are facing are caused by the OpenAPI, support queries are often received from developers that are digging into tracebacks originating from a flaw in their own ication, rather than an issue with the OpenAPI. If you think the OpenAPI is the source of the problem, please verify your suspicion by answering the below 3 questions:</p>
 <ol>
 <li><strong>Analyze the traceback</strong> (or logs) provided by your development environment. Does it indicate that all processes are working fine within the app and the issue is in fact caused when a request is sent to (or received from) the OpenAPI?</li>
-<li><strong>Extract the request</strong> at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy  like <a href="https://www.telerik.com/fiddler">Fiddler</a> to simplify this process. Does the request conform to basic OpenAPI HTTP request requirements?</li>
-<li><strong>Verify</strong> the request using an API debugging tool such as <a href="https://www.getpostman.com/">Postman</a>, or directly from the command line using <code>curl</code>. Does this result in the same response/error/behavior?</li>
+<li><strong>Extract the request</strong> at point of failure: pluck the the misbehaving HTTP request out of context including its headers, parameters, body, and cookies. You can use a debugging proxy such as <a href="https://www.telerik.com/fiddler">Fiddler</a> to simplify this process. Does the request conform to basic OpenAPI HTTP request requirements?</li>
+<li><strong>Verify</strong> the request using an API debugging tool such as <a href="https://www.getpostman.com/">Postman</a>, or directly from the command line using <code>curl</code>. Does this result in the same behavior?</li>
 </ol>
 <h2 id="step-2-use-the-search-check-the-faq">Step 2: Use the Search &amp; Check the FAQ<a class="headerlink" href="#step-2-use-the-search-check-the-faq" title="Permanent link">&para;</a></h2>
 <p>The search tool at the top of this window is a quick and powerful way to <strong>scan every bit of information</strong> on this website. Make sure to use different combinations of keywords if you are not able to find the information you are looking for and <a href="../basics/faq/">check the FAQ</a> to see if your specific question has come up before. FAQ articles are added progressively for every question received by OpenAPI support.</p>
 <h2 id="step-3-email-openapi-support">Step 3: Email OpenAPI Support<a class="headerlink" href="#step-3-email-openapi-support" title="Permanent link">&para;</a></h2>
-<p>If all of the above did not help you find an answer, the support team would be glad to receive a message on <a href="mailto:openapisupport@saxobank.com">openapisupport@saxobank.com</a>. Please bear in mind you can <strong>help us help you</strong> by including <em>as many details as possible</em> in your inquiry. The OpenAPI receives millions of requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".</p>
+<p>If all of the above did not help you find an answer, the support team would be glad to receive a message on <a href="mailto:openapisupport@saxobank.com">openapisupport@saxobank.com</a>. Please bear in mind you can <strong>help us help you</strong> by including <em>as many details as possible</em> in your inquiry. The OpenAPI receives millions of HTTP requests every day, so it is virtually impossible to even begin to provide support if all we have is an email address and a message such as "it doesn't work".</p>
 <p>Here's how to <strong>request support like a pro</strong>:</p>
 <ol>
 <li>Include <strong>a clear description</strong> of the issue/bug/problem/obstacle that you are facing along the lines of:<blockquote>
-<p>"I am trying to achieve <em><em>business requirement</em></em> so I sent a request to the OpenAPI such as this <em><em>request example</em></em> and I expected to receive <em><em>desired outcome</em></em> but instead I got <em><em>unexpected behavior</em></em>."</p>
+<p>"I am trying to achieve &lt;<em>business requirement</em>&gt; so I sent a request to the OpenAPI such as this &lt;<em>request example</em>&gt; and I expected to receive &lt;<em>desired outcome</em>&gt; but instead I got &lt;<em>unexpected behavior</em>&gt;."</p>
 </blockquote>
 </li>
 <li>Add the <strong>details of the request</strong> that results in the error. If you followed <a href="#step-1-basic-diagnosis">Step 1</a>, you will have this at hand already. Make sure to include:<ul>
@@ -1028,7 +1028,7 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The <code>X-Correlation</code> header is an internal Saxo identifier which we can track throughout our systems. Make sure to send us this value!</p>
+<p>The <code>X-Correlation</code> header is an internal Saxo identifier which we can track throughout our systems. Make sure to send us this header!</p>
 </div>
 <h2 id="about-the-x-correlation-header">About the <code>X-Correlation</code> Header<a class="headerlink" href="#about-the-x-correlation-header" title="Permanent link">&para;</a></h2>
 <p>Imagine you are about to send a support request and you can only include <strong>1 piece of information</strong>, what should it be? Answer: the <code>X-Correlation</code> header. The OpenAPI sends out correlation headers with <em>every response</em>, which encode important contextual details regarding your requests and allows for <strong>direct log queries</strong>. It goes without saying that this is by far the most useful info our team could receive from you!</p>
