@@ -6,6 +6,8 @@
 
 This repository contains documentation for Saxo's OpenAPI.
 
+Based on MkDocs Material design.
+
 ## Get Started
 
 Requirements:
